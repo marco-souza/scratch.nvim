@@ -1,5 +1,3 @@
-print("Hello from neovim")
-
 -- setup editor
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -32,3 +30,8 @@ vim.opt.ignorecase = true
 
 --- terminal colors 
 vim.opt.termguicolors = true
+
+require("plugins").setup()
+
+--- run colorschema command
+vim.cmd.colorscheme("kanagawa-wave")
