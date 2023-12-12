@@ -1,5 +1,5 @@
 --- Editor settings module
---
+
 -- line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -33,3 +33,5 @@ vim.opt.ignorecase = true
 --- terminal colors 
 vim.opt.termguicolors = true
 
+-- fold
+vim.opt.foldmethod = "indent"

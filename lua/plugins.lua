@@ -1,14 +1,33 @@
 -- Plugin module
 local M = {}
 
+local configs = {
+  treesitter = function()
+    require("nvim-treesitter.configs").setup({
+      ensure_installed = {
+        -- recommended
+        "c", "lua", "vim", "vimdoc", "query",
+      },
+      auto_install = true,
+      indent = { enable = true },
+      highlight = { enable = true },
+    })
+  end,
+  theme = function()
+    --- run colorschema command
+    vim.cmd.colorscheme("kanagawa-wave")
+  end,
+}
+
 local plugins = {
   {
+    "nvim-treesitter/nvim-treesitter",
+    config = configs.treesitter,
+  },
+  {
     "rebelot/kanagawa.nvim",
-    config = function()
-      --- run colorschema command
-      vim.cmd.colorscheme("kanagawa-wave")
-    end,
-  }
+    config = configs.theme,
+  },
 }
 
 local function setup_lazy(opts)
