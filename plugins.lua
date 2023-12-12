@@ -2,7 +2,13 @@
 local M = {}
 
 local plugins = {
-  { "rebelot/kanagawa.nvim" }
+  {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      --- run colorschema command
+      vim.cmd.colorscheme("kanagawa-wave")
+    end,
+  }
 }
 
 local function setup_lazy(opts)
