@@ -55,7 +55,7 @@ local function setup_lazy(opts)
   require("lazy").setup(plugins, opts)
 end
 
-function M.setup(opts)
+function M.setup()
   print("loading plugins")
   setup_lazy()
 end
