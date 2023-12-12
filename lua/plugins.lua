@@ -6,7 +6,11 @@ local configs = {
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
         -- recommended
-        "c", "lua", "vim", "vimdoc", "query",
+        "c",
+        "lua",
+        "vim",
+        "vimdoc",
+        "query",
       },
       auto_install = true,
       indent = { enable = true },

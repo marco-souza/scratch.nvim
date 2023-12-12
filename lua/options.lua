@@ -30,7 +30,7 @@ vim.opt.inccommand = "split"
 --- ignorecase for searching commands
 vim.opt.ignorecase = true
 
---- terminal colors 
+--- terminal colors
 vim.opt.termguicolors = true
 
 -- fold
