@@ -37,7 +37,9 @@ It setups up a few basic thigs like:
 - plugins
 - treesitter
 
-This was baes on [this video](https://www.youtube.com/watch?v=87AXw9Quy9U&list=PLx2ksyallYzW4WNYHD9xOFrPRYGlntAft)
+This was baes on:
+- [Understanding Neovim](https://www.youtube.com/watch?v=87AXw9Quy9U&list=PLx2ksyallYzW4WNYHD9xOFrPRYGlntAft)
+- [Neovim IDE from scratch](https://www.youtube.com/watch?v=ctH-a-1eUME&list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ)
 
 ## Dependencies
 
