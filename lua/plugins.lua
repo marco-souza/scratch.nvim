@@ -33,38 +33,50 @@ local plugins = {
     config = configs.theme,
   },
   {
-    'nvim-telescope/telescope.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
   },
   {
     "marco-souza/ncm.nvim",
     -- dir = "~/workspace/marco-souza/ncm.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-ui-select.nvim" },
     config = true,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
+    },
+  },
+  {
+    "marco-souza/ollero.nvim",
+    -- dir = "~/workspace/marco-souza/ollero.nvim",
+    config = true,
+    dependencies = {
+      "nvim-telescope/telescope-ui-select.nvim",
+    },
   },
   {
     "NeogitOrg/neogit",
     config = true,
     dependencies = {
-      "nvim-lua/plenary.nvim",         -- required
-      "sindrets/diffview.nvim",        -- optional - Diff integration
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
 
       -- Only one of these is needed, not both.
       "nvim-telescope/telescope.nvim", -- optional
-      "ibhagwan/fzf-lua",              -- optional
+      "ibhagwan/fzf-lua", -- optional
     },
   },
   { "wakatime/vim-wakatime" },
 }
 
 local function setup_lazy(opts)
-  opts = opts or {
-    change_detection = {
-      -- automatically check for config file changes and reload the ui
-      enabled = true,
-      notify = true, -- get a notification when changes are found
-    },
-  }
+  opts = opts
+    or {
+      change_detection = {
+        -- automatically check for config file changes and reload the ui
+        enabled = true,
+        notify = true, -- get a notification when changes are found
+      },
+    }
 
   -- install lazy
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
