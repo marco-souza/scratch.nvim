@@ -54,7 +54,7 @@ local plugins = {
       "ibhagwan/fzf-lua",              -- optional
     },
   },
-  -- { "wakatime/vim-wakatime", event = "InsertEnter" },
+  { "wakatime/vim-wakatime" },
 }
 
 local function setup_lazy(opts)
