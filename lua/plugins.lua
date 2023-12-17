@@ -33,7 +33,7 @@ local plugins = {
     config = configs.theme,
   },
   {
-    'nvim-telescope/telescope.nvim',
+    'nvim-telescope/telescope.nvim', tag = '0.1.5',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
   {
@@ -46,7 +46,13 @@ local plugins = {
 }
 
 local function setup_lazy(opts)
-  opts = opts or {}
+  opts = opts or {
+    change_detection = {
+      -- automatically check for config file changes and reload the ui
+      enabled = true,
+      notify = true, -- get a notification when changes are found
+    },
+  }
 
   -- install lazy
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
