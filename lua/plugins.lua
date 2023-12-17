@@ -64,6 +64,9 @@ local plugins = {
       "nvim-telescope/telescope.nvim", -- optional
       "ibhagwan/fzf-lua", -- optional
     },
+    keys = {
+      { "<leader>gg", function() vim.cmd("Neogit") end, desc = "Neogit toggle" },
+    },
   },
   { "wakatime/vim-wakatime" },
 }
