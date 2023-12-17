@@ -6,7 +6,11 @@ local configs = {
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
         -- recommended
-        "c", "lua", "vim", "vimdoc", "query",
+        "c",
+        "lua",
+        "vim",
+        "vimdoc",
+        "query",
       },
       auto_install = true,
       indent = { enable = true },
@@ -27,6 +31,13 @@ local plugins = {
   {
     "rebelot/kanagawa.nvim",
     config = configs.theme,
+  },
+  {
+    "marco-souza/ncm.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
+    },
   },
 }
 
@@ -51,7 +62,7 @@ local function setup_lazy(opts)
   require("lazy").setup(plugins, opts)
 end
 
-function M.setup(opts)
+function M.setup()
   print("loading plugins")
   setup_lazy()
 end
