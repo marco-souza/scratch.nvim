@@ -33,13 +33,11 @@ local plugins = {
     config = configs.theme,
   },
   {
-    "marco-souza/scratch.nvim",
+    "marco-souza/ncm.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
     },
-    -- dir = "~/workspace/marco-souza/scratch.nvim/",
-    -- config = configs.theme,
   },
 }
 
