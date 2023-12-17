@@ -40,12 +40,21 @@ local plugins = {
     "marco-souza/ncm.nvim",
     -- dir = "~/workspace/marco-souza/ncm.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-ui-select.nvim" },
-    opts = {},
+    config = true,
   },
   {
-    "TimUntersberger/neogit",
-    opts = {},
+    "NeogitOrg/neogit",
+    config = true,
+    dependencies = {
+      "nvim-lua/plenary.nvim",         -- required
+      "sindrets/diffview.nvim",        -- optional - Diff integration
+
+      -- Only one of these is needed, not both.
+      "nvim-telescope/telescope.nvim", -- optional
+      "ibhagwan/fzf-lua",              -- optional
+    },
   },
+  -- { "wakatime/vim-wakatime", event = "InsertEnter" },
 }
 
 local function setup_lazy(opts)
