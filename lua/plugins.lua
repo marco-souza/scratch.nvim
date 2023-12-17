@@ -33,11 +33,15 @@ local plugins = {
     config = configs.theme,
   },
   {
+    'nvim-telescope/telescope.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
+  {
     "marco-souza/ncm.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope-ui-select.nvim",
-    },
+    event = "VeryLazy",
+    dir = "~/workspace/marco-souza/ncm.nvim/",
+    dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-ui-select.nvim" },
+    opts = {},
   },
 }
 
