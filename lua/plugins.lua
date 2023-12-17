@@ -32,6 +32,15 @@ local plugins = {
     "rebelot/kanagawa.nvim",
     config = configs.theme,
   },
+  {
+    "marco-souza/scratch.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
+    },
+    -- dir = "~/workspace/marco-souza/scratch.nvim/",
+    -- config = configs.theme,
+  },
 }
 
 local function setup_lazy(opts)
