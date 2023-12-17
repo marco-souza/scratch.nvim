@@ -99,6 +99,10 @@ end
 function M.setup()
   print("loading plugins")
   setup_lazy()
+
+  if vim.fn.expand('%') == '' then
+    vim.cmd("intro")
+  end
 end
 
 return M
