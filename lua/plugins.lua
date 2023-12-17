@@ -38,6 +38,7 @@ local plugins = {
   },
   {
     "marco-souza/ncm.nvim",
+    -- dir = "~/workspace/marco-souza/ncm.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-ui-select.nvim" },
     opts = {},
   },
