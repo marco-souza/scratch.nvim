@@ -68,6 +68,15 @@ local plugins = {
       { "<leader>gg", function() vim.cmd("Neogit") end, desc = "Neogit toggle" },
     },
   },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    config = true,
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+  },
   { "wakatime/vim-wakatime" },
 }
 
