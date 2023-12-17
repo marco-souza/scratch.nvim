@@ -35,3 +35,6 @@ vim.opt.termguicolors = true
 
 -- fold
 vim.opt.foldmethod = "indent"
+
+-- leader
+vim.g.mapleader = " "
