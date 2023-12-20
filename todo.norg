@@ -8,7 +8,8 @@
 **** linters (mason)
 **** format on save
 *** ( ) mappings
-    - brackets autoclose
+    - ( ) brackets autoclose
+    - ( ) commenters (<leader>/)
 *** ( ) terminal
     - ( ) should I create my own manager? (ollero looks fine)
 *** ( ) autcomplete
