@@ -36,10 +36,34 @@ local plugins = {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
-      { "<leader>ff", function(opts) require('telescope.builtin').find_files(opts) end, desc = "Find files" },
-      { "<leader>fw", function(opts) require('telescope.builtin').live_grep(opts) end, desc = "Find Word" },
-      { "<leader>fb", function(opts) require('telescope.builtin').buffers(opts) end, desc = "Find in buffer" },
-      { "<leader>fh", function(opts) require('telescope.builtin').help_tags(opts) end, desc = "Find help" },
+      {
+        "<leader>ff",
+        function(opts)
+          require("telescope.builtin").find_files(opts)
+        end,
+        desc = "Find files",
+      },
+      {
+        "<leader>fw",
+        function(opts)
+          require("telescope.builtin").live_grep(opts)
+        end,
+        desc = "Find Word",
+      },
+      {
+        "<leader>fb",
+        function(opts)
+          require("telescope.builtin").buffers(opts)
+        end,
+        desc = "Find in buffer",
+      },
+      {
+        "<leader>fh",
+        function(opts)
+          require("telescope.builtin").help_tags(opts)
+        end,
+        desc = "Find help",
+      },
     },
   },
   {
@@ -69,7 +93,13 @@ local plugins = {
       "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     keys = {
-      { "<leader>/", function() vim.cmd("Neotree toggle") end, desc = "Neotree toggle" },
+      {
+        "<leader><leader>",
+        function()
+          vim.cmd("Neotree toggle")
+        end,
+        desc = "Neotree toggle",
+      },
     },
   },
   {
@@ -84,7 +114,13 @@ local plugins = {
       "ibhagwan/fzf-lua", -- optional
     },
     keys = {
-      { "<leader>gg", function() vim.cmd("Neogit") end, desc = "Neogit toggle" },
+      {
+        "<leader>gg",
+        function()
+          vim.cmd("Neogit")
+        end,
+        desc = "Neogit toggle",
+      },
     },
   },
   {
@@ -131,7 +167,7 @@ function M.setup()
   print("loading plugins")
   setup_lazy()
 
-  if vim.fn.expand('%') == '' then
+  if vim.fn.expand("%") == "" then
     vim.cmd("intro")
   end
 end
