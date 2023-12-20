@@ -144,7 +144,8 @@ local plugins = {
           ["core.dirman"] = { -- Manages Neorg workspaces
             config = {
               workspaces = {
-                notes = "~/workspace/marco-souza/notes/",
+                notes = "~/workspace/marco-souza/notes",
+                default = "~/workspace/marco-souza/notes",
               },
             },
           },
