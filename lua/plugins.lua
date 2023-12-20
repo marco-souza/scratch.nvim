@@ -148,6 +148,12 @@ local plugins = {
               },
             },
           },
+          ["core.keybinds"] = {
+            config = {
+              neorg_leader = " ",
+              default_keybinds = true,
+            },
+          },
         },
       })
     end,
