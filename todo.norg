@@ -1,0 +1,19 @@
+* Neovim from Scratch
+
+  This is the backlog of things to implement in this repository
+
+** ( ) Setup Backlog
+*** ( ) lsp
+**** formatters (null-ls, mason)
+**** linters (mason)
+**** format on save
+*** ( ) mappings
+    - brackets autoclose
+*** ( ) terminal
+    - ( ) should I create my own manager? (ollero looks fine)
+*** ( ) autcomplete
+    - ( ) emmet
+*** ( ) web
+**** ( ) auto-rename/close/tag
+**** ( ) snippets (luasnip)
+*** ( ) vim suround/around
