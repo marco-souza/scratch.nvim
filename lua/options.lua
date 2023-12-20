@@ -34,7 +34,9 @@ vim.opt.ignorecase = true
 vim.opt.termguicolors = true
 
 -- fold
-vim.opt.foldmethod = "indent"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevelstart = 0
 
 -- leader
 vim.g.mapleader = " "
