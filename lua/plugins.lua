@@ -124,6 +124,7 @@ local plugins = {
       "nvim-telescope/telescope-ui-select.nvim",
     },
   },
+  { "marco-souza/term.nvim", config = true },
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
