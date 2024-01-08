@@ -9,7 +9,7 @@
 **** format on save
 *** ( ) mappings
     - ( ) brackets autoclose
-    - ( ) commenters (<leader>/)
+    - (x) commenters (<leader>c)
     - (-) Improve window navigation
 *** (x) terminal
     - (x) should I create my own manager? (ollero looks fine)

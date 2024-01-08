@@ -185,6 +185,14 @@ local plugins = {
   },
   { "wakatime/vim-wakatime" },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  {
+    "numToStr/Comment.nvim",
+    config = true,
+    keys = {
+      { "<leader>c", ":normal gcc<CR>", desc = "Line Comment" },
+      { "<leader>b", ":normal gbc<CR>", desc = "Block Comment" },
+    },
+  },
 
   -- Personal plugins
   {
