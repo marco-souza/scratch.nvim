@@ -191,6 +191,11 @@ local plugins = {
       { "<leader>b", ":normal gbc<CR>", desc = "Block Comment" },
     },
   },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = true,
+  },
   { "airblade/vim-gitgutter" },
   { "wakatime/vim-wakatime" },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
