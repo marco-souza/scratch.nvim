@@ -2,7 +2,7 @@
 
   This is the backlog of things to implement in this repository
 
-** ( ) Setup Backlog
+** (-) Setup Backlog
 *** ( ) lsp
 **** formatters (null-ls, mason)
 **** linters (mason)
@@ -10,8 +10,10 @@
 *** ( ) mappings
     - ( ) brackets autoclose
     - ( ) commenters (<leader>/)
-*** ( ) terminal
-    - ( ) should I create my own manager? (ollero looks fine)
+    - (-) Improve window navigation
+*** (x) terminal
+    - (x) should I create my own manager? (ollero looks fine)
+          Resolution: term.nvim was created
 *** ( ) autcomplete
     - ( ) emmet
 *** ( ) web
