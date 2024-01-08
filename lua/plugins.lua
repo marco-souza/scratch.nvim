@@ -108,27 +108,6 @@ local plugins = {
     },
   },
   {
-    "marco-souza/ncm.nvim",
-    -- dir = "~/workspace/marco-souza/ncm.nvim",
-    config = true,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope-ui-select.nvim",
-    },
-  },
-  {
-    "marco-souza/ollero.nvim",
-    -- dir = "~/workspace/marco-souza/ollero.nvim",
-    config = true,
-    dependencies = {
-      "nvim-telescope/telescope-ui-select.nvim",
-    },
-  },
-  {
-    "marco-souza/term.nvim",
-    opts = { shell = "zsh" },
-  },
-  {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {
@@ -206,6 +185,29 @@ local plugins = {
   },
   { "wakatime/vim-wakatime" },
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+
+  -- Personal plugins
+  {
+    "marco-souza/ncm.nvim",
+    -- dir = "~/workspace/marco-souza/ncm.nvim",
+    config = true,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
+    },
+  },
+  {
+    "marco-souza/ollero.nvim",
+    -- dir = "~/workspace/marco-souza/ollero.nvim",
+    config = true,
+    dependencies = {
+      "nvim-telescope/telescope-ui-select.nvim",
+    },
+  },
+  {
+    "marco-souza/term.nvim",
+    opts = { shell = "zsh" },
+  },
 }
 
 local function setup_lazy(opts)
