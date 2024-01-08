@@ -183,8 +183,6 @@ local plugins = {
       })
     end,
   },
-  { "wakatime/vim-wakatime" },
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   {
     "numToStr/Comment.nvim",
     config = true,
@@ -193,6 +191,9 @@ local plugins = {
       { "<leader>b", ":normal gbc<CR>", desc = "Block Comment" },
     },
   },
+  { "airblade/vim-gitgutter" },
+  { "wakatime/vim-wakatime" },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 
   -- Personal plugins
   {
