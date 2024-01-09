@@ -1,5 +1,4 @@
 local servers = {
-  css = {},
   html = {},
   lua_ls = {},
   tsserver = {},
