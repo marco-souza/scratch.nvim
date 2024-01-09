@@ -1,10 +1,10 @@
 * Neovim from Scratch
 
-  This is the backlog of things to implement in this repository
+This is the backlog of things to implement in this repository
 
-** ( ) Setup Backlog
-*** ( ) Optimization
-**** ( ) improve startup time (lazy is slow? How to debug startup time?)
+* (x) Setup Backlog
+** (x) Optimization
+*** (x) improve startup time (lazy is slow? How to debug startup time?)
 * (x) Archive
 *** (x) lsp
 **** (x) formatters (null-ls, mason)
