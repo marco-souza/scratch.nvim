@@ -23,8 +23,8 @@ return {
     "numToStr/Comment.nvim",
     config = true,
     keys = {
-      { "<leader>c", ":normal gcc<CR>", desc = "Line Comment" },
-      { "<leader>b", ":normal gbc<CR>", desc = "Block Comment" },
+      { "<leader>/", ":normal gcc<CR>", desc = "Line Comment" },
+      { "<leader>?", ":normal gbc<CR>", desc = "Block Comment" },
     },
   },
   {
