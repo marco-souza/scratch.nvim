@@ -38,5 +38,9 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevelstart = 1
 
+-- persistent undo
+vim.opt.undodir = vim.fn.expand("~/.config/nvim.undo")
+vim.opt.undofile = true
+
 -- leader
 vim.g.mapleader = " "
