@@ -65,18 +65,21 @@ end
 
 return {
   {
-    "williamboman/mason.nvim",
-    config = true,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    opts = {
-      automatic_installation = true,
-      ensure_installed = ensure_installed,
-    },
-  },
-  {
     "neovim/nvim-lspconfig",
+    event = "VeryLazy",
     config = lspconfig_setup,
+    dependencies = {
+      {
+        "williamboman/mason.nvim",
+        config = true,
+      },
+      {
+        "williamboman/mason-lspconfig.nvim",
+        opts = {
+          automatic_installation = true,
+          ensure_installed = ensure_installed,
+        },
+      },
+    },
   },
 }

@@ -1,6 +1,7 @@
 return {
   {
     "nvim-neorg/neorg",
+    ft = "norg", -- load only for this filetype
     build = ":Neorg sync-parsers",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()

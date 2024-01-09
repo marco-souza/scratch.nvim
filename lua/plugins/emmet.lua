@@ -1,6 +1,7 @@
 return {
   {
     "aca/emmet-ls",
+    event = "InsertEnter",
     config = function()
       local lspconfig = require("lspconfig")
       local capabilities = vim.lsp.protocol.make_client_capabilities()
