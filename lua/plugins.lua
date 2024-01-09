@@ -79,6 +79,171 @@ local configs = {
     --- run colorschema command
     vim.cmd.colorscheme("kanagawa-wave")
   end,
+  neorg = function()
+    require("neorg").setup({
+      load = {
+        ["core.defaults"] = {}, -- Loads default behaviour
+        ["core.concealer"] = {}, -- Adds pretty icons to your documents
+        ["core.dirman"] = { -- Manages Neorg workspaces
+          config = {
+            workspaces = {
+              notes = "~/workspace/marco-souza/notes",
+              default = "~/workspace/marco-souza/notes",
+            },
+          },
+        },
+        ["core.keybinds"] = {
+          config = {
+            neorg_leader = "\\",
+            default_keybinds = true,
+          },
+        },
+      },
+    })
+  end,
+  blankline = function()
+    local highlight = {
+      "RainbowRed",
+      "RainbowYellow",
+      "RainbowBlue",
+      "RainbowOrange",
+      "RainbowGreen",
+      "RainbowViolet",
+      "RainbowCyan",
+    }
+    local hooks = require("ibl.hooks")
+    -- create the highlight groups in the highlight setup hook, so they are reset
+    -- every time the colorscheme changes
+    hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+      vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+      vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+      vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
+      vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+      vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
+      vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+      vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+    end)
+
+    vim.g.rainbow_delimiters = { highlight = highlight }
+    require("ibl").setup({ scope = { highlight = highlight } })
+
+    hooks.register(
+      hooks.type.SCOPE_HIGHLIGHT,
+      hooks.builtin.scope_highlight_from_extmark
+    )
+  end,
+  -- opts
+  todo = {
+    keywords = {
+      FIX = {
+        icon = " ", -- icon used for the sign, and in search results
+        color = "error", -- can be a hex color, or a named color (see below)
+        alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
+      },
+      TODO = { icon = " ", color = "info" },
+      HACK = { icon = " ", color = "warning" },
+      WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+      PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+      NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+      TEST = {
+        icon = "⏲ ",
+        color = "test",
+        alt = { "TESTING", "PASSED", "FAILED" },
+      },
+    },
+  },
+}
+
+local keys = {
+  telescope = {
+    {
+      "<leader>ff",
+      function(opts)
+        require("telescope.builtin").find_files(opts)
+      end,
+      desc = "Find files",
+    },
+    {
+      "<leader>fw",
+      function(opts)
+        require("telescope.builtin").live_grep(opts)
+      end,
+      desc = "Find Word",
+    },
+    {
+      "<leader>fb",
+      function(opts)
+        require("telescope.builtin").buffers(opts)
+      end,
+      desc = "Find in buffer",
+    },
+    {
+      "<leader>fh",
+      function(opts)
+        require("telescope.builtin").help_tags(opts)
+      end,
+      desc = "Find help",
+    },
+  },
+  harpoon = {
+    {
+      "<leader>ml",
+      function()
+        require("harpoon.ui").toggle_quick_menu()
+      end,
+      desc = "list marks",
+    },
+    {
+      "<leader>mt",
+      function()
+        require("harpoon.term").gotoTerminal()
+      end,
+      desc = "term",
+    },
+    {
+      "<leader>mm",
+      function()
+        require("harpoon.mark").add_file()
+      end,
+      desc = "Show marks",
+    },
+    {
+      "<leader>mn",
+      function()
+        require("harpoon.ui").nav_next()
+      end,
+      desc = "Next mark",
+    },
+    {
+      "<leader>mb",
+      function()
+        require("harpoon.ui").nav_prev()
+      end,
+      desc = "Prev mark",
+    },
+  },
+  neotree = {
+    {
+      "<leader><leader>",
+      function()
+        vim.cmd("Neotree toggle")
+      end,
+      desc = "Neotree toggle",
+    },
+  },
+  neogit = {
+    {
+      "<leader>gg",
+      function()
+        vim.cmd("Neogit")
+      end,
+      desc = "Neogit toggle",
+    },
+  },
+  comment = {
+    { "<leader>c", ":normal gcc<CR>", desc = "Line Comment" },
+    { "<leader>b", ":normal gbc<CR>", desc = "Block Comment" },
+  },
 }
 
 local plugins = {
@@ -96,77 +261,12 @@ local plugins = {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    keys = {
-      {
-        "<leader>ff",
-        function(opts)
-          require("telescope.builtin").find_files(opts)
-        end,
-        desc = "Find files",
-      },
-      {
-        "<leader>fw",
-        function(opts)
-          require("telescope.builtin").live_grep(opts)
-        end,
-        desc = "Find Word",
-      },
-      {
-        "<leader>fb",
-        function(opts)
-          require("telescope.builtin").buffers(opts)
-        end,
-        desc = "Find in buffer",
-      },
-      {
-        "<leader>fh",
-        function(opts)
-          require("telescope.builtin").help_tags(opts)
-        end,
-        desc = "Find help",
-      },
-    },
+    keys = keys.telescope,
   },
   {
     "ThePrimeagen/harpoon",
     dependencies = { "nvim-lua/plenary.nvim" },
-    keys = {
-      {
-        "<leader>ml",
-        function()
-          require("harpoon.ui").toggle_quick_menu()
-        end,
-        desc = "list marks",
-      },
-      {
-        "<leader>mt",
-        function()
-          require("harpoon.term").gotoTerminal()
-        end,
-        desc = "term",
-      },
-      {
-        "<leader>mm",
-        function()
-          require("harpoon.mark").add_file()
-        end,
-        desc = "Show marks",
-      },
-      {
-        "<leader>mn",
-        function()
-          require("harpoon.ui").nav_next()
-        end,
-        desc = "Next mark",
-      },
-      {
-        "<leader>mb",
-        function()
-          require("harpoon.ui").nav_prev()
-        end,
-        desc = "Prev mark",
-      },
-    },
+    keys = keys.harpoon,
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -177,15 +277,7 @@ local plugins = {
       "MunifTanjim/nui.nvim",
       "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
-    keys = {
-      {
-        "<leader><leader>",
-        function()
-          vim.cmd("Neotree toggle")
-        end,
-        desc = "Neotree toggle",
-      },
-    },
+    keys = keys.neotree,
   },
   {
     "NeogitOrg/neogit",
@@ -198,15 +290,7 @@ local plugins = {
       "nvim-telescope/telescope.nvim", -- optional
       "ibhagwan/fzf-lua", -- optional
     },
-    keys = {
-      {
-        "<leader>gg",
-        function()
-          vim.cmd("Neogit")
-        end,
-        desc = "Neogit toggle",
-      },
-    },
+    keys = keys.neogit,
   },
   {
     "folke/which-key.nvim",
@@ -221,59 +305,17 @@ local plugins = {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("neorg").setup({
-        load = {
-          ["core.defaults"] = {}, -- Loads default behaviour
-          ["core.concealer"] = {}, -- Adds pretty icons to your documents
-          ["core.dirman"] = { -- Manages Neorg workspaces
-            config = {
-              workspaces = {
-                notes = "~/workspace/marco-souza/notes",
-                default = "~/workspace/marco-souza/notes",
-              },
-            },
-          },
-          ["core.keybinds"] = {
-            config = {
-              neorg_leader = " ",
-              default_keybinds = true,
-            },
-          },
-        },
-      })
-    end,
+    config = configs.neorg,
   },
   {
     "numToStr/Comment.nvim",
     config = true,
-    keys = {
-      { "<leader>c", ":normal gcc<CR>", desc = "Line Comment" },
-      { "<leader>b", ":normal gbc<CR>", desc = "Block Comment" },
-    },
+    keys = keys.comment,
   },
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {
-      keywords = {
-        FIX = {
-          icon = " ", -- icon used for the sign, and in search results
-          color = "error", -- can be a hex color, or a named color (see below)
-          alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
-        },
-        TODO = { icon = " ", color = "info" },
-        HACK = { icon = " ", color = "warning" },
-        WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-        PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-        NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
-        TEST = {
-          icon = "⏲ ",
-          color = "test",
-          alt = { "TESTING", "PASSED", "FAILED" },
-        },
-      },
-    },
+    opts = configs.todo,
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -282,7 +324,11 @@ local plugins = {
   },
   { "airblade/vim-gitgutter" },
   { "wakatime/vim-wakatime" },
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    config = configs.blankline,
+  },
 
   -- Personal plugins
   {
