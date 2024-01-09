@@ -15,7 +15,7 @@
     - (x) should I create my own manager? (ollero looks fine)
           Resolution: term.nvim was created
 *** (x) autcomplete
-    - ( ) emmet
+    - (x) emmet
 *** (x) web
 **** (x) auto-rename/close/tag
 **** (x) snippets (luasnip)
