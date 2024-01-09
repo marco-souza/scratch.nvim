@@ -19,7 +19,13 @@ return {
   },
   {
     "marco-souza/term.nvim",
-    opts = { shell = "zsh" },
+    dir = "~/workspace/marco-souza/term.nvim",
+    opts = {
+      shell = "zsh",
+      mappings = {
+        toggle_terminal = "<leader><leader>",
+      },
+    },
   },
 }
 

@@ -10,7 +10,7 @@ return {
     },
     keys = {
       {
-        "<leader><leader>",
+        "<leader>n",
         function()
           vim.cmd("Neotree toggle")
         end,
