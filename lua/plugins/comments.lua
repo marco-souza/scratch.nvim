@@ -18,14 +18,22 @@ local config = {
   },
 }
 
+local mappings = {
+  { "<leader>/", ":normal gcc<CR>", desc = "Line Comment" },
+  { "<leader>?", ":normal gbc<CR>", desc = "Block Comment" },
+  -- { "gcc", mode = "n", desc = "Comment toggle current line" },
+  -- { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
+  -- { "gbc", mode = "n", desc = "Comment toggle current block" },
+  -- { "gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
+  -- { "gc", mode = "x", desc = "Comment toggle linewise (visual)" },
+  -- { "gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
+}
+
 return {
   {
     "numToStr/Comment.nvim",
     config = true,
-    keys = {
-      { "<leader>/", ":normal gcc<CR>", desc = "Line Comment" },
-      { "<leader>?", ":normal gbc<CR>", desc = "Block Comment" },
-    },
+    keys = mappings,
   },
   {
     "folke/todo-comments.nvim",
