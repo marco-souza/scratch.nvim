@@ -7,16 +7,16 @@
 **** (x) formatters (null-ls, mason)
 **** (x) linters (mason)
 **** ( ) format on save
-*** ( ) mappings
-    - ( ) brackets autoclose
-    - (x) commenters (<leader>c)
+*** (x) mappings
+    - (x) brackets autoclose
+    - (x) commenters (<leader>/)
     - (x) Improve window navigation
 *** (x) terminal
     - (x) should I create my own manager? (ollero looks fine)
           Resolution: term.nvim was created
 *** (x) autcomplete
     - ( ) emmet
-*** (-) web
-**** ( ) auto-rename/close/tag
+*** (x) web
+**** (x) auto-rename/close/tag
 **** (x) snippets (luasnip)
-*** ( ) vim suround/around
+*** (x) vim suround/around

@@ -20,6 +20,19 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = true,
   },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = true,
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    config = true,
+  },
+  {
+    "kylechui/nvim-surround",
+    config = true,
+  },
   "airblade/vim-gitgutter",
   "wakatime/vim-wakatime",
 }
