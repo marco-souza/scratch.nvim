@@ -2,11 +2,14 @@
 
   This is the backlog of things to implement in this repository
 
-** (-) Setup Backlog
-*** (-) lsp
+** ( ) Setup Backlog
+*** ( ) Optimization
+**** ( ) improve startup time (lazy is slow? How to debug startup time?)
+* (x) Archive
+*** (x) lsp
 **** (x) formatters (null-ls, mason)
 **** (x) linters (mason)
-**** ( ) format on save
+**** (x) format on save
 *** (x) mappings
     - (x) brackets autoclose
     - (x) commenters (<leader>/)
