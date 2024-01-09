@@ -35,4 +35,5 @@ return {
   },
   "airblade/vim-gitgutter",
   "wakatime/vim-wakatime",
+  "dstein64/vim-startuptime",
 }
