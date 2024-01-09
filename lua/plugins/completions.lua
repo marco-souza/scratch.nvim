@@ -3,15 +3,14 @@ local has_words_before = function()
   local unpack = unpack or table.unpack
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0
-      and vim.api
-      .nvim_buf_get_lines(0, line - 1, line, true)[1]
-      :sub(col, col)
-      :match("%s")
+    and vim.api
+        .nvim_buf_get_lines(0, line - 1, line, true)[1]
+        :sub(col, col)
+        :match("%s")
       == nil
 end
 
 return {
-  "hrsh7th/cmp-nvim-lsp",
   {
     "L3MON4D3/LuaSnip",
     dependencies = {
@@ -21,6 +20,11 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+    },
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
@@ -73,6 +77,7 @@ return {
           { name = "luasnip" }, -- For luasnip users.
         }, {
           { name = "buffer" },
+          { name = "path" },
         }),
       })
     end,
