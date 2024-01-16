@@ -32,13 +32,13 @@ local mappings = {
 return {
   {
     "numToStr/Comment.nvim",
-    event = "VeryLazy",
+    event = "LspAttach",
     config = true,
     keys = mappings,
   },
   {
     "folke/todo-comments.nvim",
-    event = "VeryLazy",
+    event = "LspAttach",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = config,
   },

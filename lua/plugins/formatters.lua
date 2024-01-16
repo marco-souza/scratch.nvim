@@ -1,7 +1,7 @@
 return {
   {
     "nvimtools/none-ls.nvim",
-    event = "VeryLazy",
+    event = "LspAttach",
     config = function()
       local null_ls = require("null-ls")
       local b = null_ls.builtins

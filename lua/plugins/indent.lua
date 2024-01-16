@@ -2,7 +2,7 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    lazy = false,
+    event = "LspAttach",
     config = function()
       local highlight = {
         "RainbowRed",

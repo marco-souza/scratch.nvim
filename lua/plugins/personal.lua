@@ -13,7 +13,7 @@ return {
   {
     "marco-souza/ollero.nvim",
     -- dir = "~/workspace/marco-souza/ollero.nvim",
-    event = "VeryLazy",
+    event = "InsertEnter",
     config = true,
     dependencies = {
       "nvim-telescope/telescope-ui-select.nvim",

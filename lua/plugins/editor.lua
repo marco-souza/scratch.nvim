@@ -1,8 +1,7 @@
 return {
   {
     "rebelot/kanagawa.nvim",
-    lazy = false,
-    config = function()
+    init = function()
       --- run colorschema command
       vim.cmd.colorscheme("kanagawa-wave")
     end,
@@ -17,9 +16,10 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
-    lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = true,
+    init = function()
+      require("lualine").setup({})
+    end,
   },
   {
     "windwp/nvim-autopairs",
@@ -42,10 +42,10 @@ return {
   },
   {
     "airblade/vim-gitgutter",
-    event = "InsertEnter",
+    event = "LspAttach",
   },
   {
     "wakatime/vim-wakatime",
-    event = "InsertEnter",
+    event = "LspAttach",
   },
 }

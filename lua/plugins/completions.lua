@@ -13,7 +13,7 @@ end
 return {
   {
     "hrsh7th/nvim-cmp",
-    event = "VeryLazy",
+    event = "LspAttach",
     dependencies = {
       -- snippets
       {

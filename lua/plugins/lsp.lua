@@ -66,7 +66,7 @@ end
 return {
   {
     "neovim/nvim-lspconfig",
-    event = "InsertEnter",
+    event = "VeryLazy",
     config = lspconfig_setup,
     dependencies = {
       {

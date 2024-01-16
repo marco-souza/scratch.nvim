@@ -1,8 +1,11 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    event = "InsertEnter",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
+    },
     keys = {
       {
         "<leader>ff",
@@ -33,10 +36,6 @@ return {
         desc = "Find help",
       },
     },
-  },
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
-    event = "InsertEnter",
     config = function()
       require("telescope").setup({
         extensions = {
