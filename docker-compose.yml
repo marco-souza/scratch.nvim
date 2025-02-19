@@ -7,7 +7,6 @@ services:
       dockerfile: Dockerfile
     container_name: neovim
     volumes:
-      - .:/root
       # mount local folder to neovim config folder
       - $PWD:/root/.config/nvim
 

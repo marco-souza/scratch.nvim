@@ -1,7 +1,6 @@
-lazy-lock.json
-
 # dev environment
 .cache/
 .local/
 .npm/
 
+.bash_history

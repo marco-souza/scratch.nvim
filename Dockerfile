@@ -6,8 +6,9 @@ RUN apk add --no-cache \
     bash \
     curl \
     git \
+    zig \
     neovim \
     nodejs \
-    npm
+    npm;
 
 CMD ["/bin/bash"]
