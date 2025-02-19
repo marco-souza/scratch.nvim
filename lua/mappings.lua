@@ -102,7 +102,7 @@ map("t", "<C-l>", "<C-\\><C-N><C-w>l", opts)
 
 -- autocmd to open terminal in insert mode
 vim.cmd(
-  [[autocmd TermOpen term://* startinsert | setlocal nonumber norelativenumber]]
+  [[autocmd TermOpen term://* startinsert | setlocal nonumber norelativenumber | resize -15 ]]
 )
 -- on enter terminal do the same
 vim.cmd(
