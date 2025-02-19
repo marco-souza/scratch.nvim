@@ -20,7 +20,6 @@ local config = {
 
 local mappings = {
   { "<leader>/", ":normal gcc<CR>", desc = "Line Comment" },
-  { "<leader>?", ":normal gbc<CR>", desc = "Block Comment" },
   -- { "gcc", mode = "n", desc = "Comment toggle current line" },
   -- { "gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
   -- { "gbc", mode = "n", desc = "Comment toggle current block" },
