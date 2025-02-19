@@ -92,7 +92,8 @@ map("n", "<leader>o", ":Oil<CR>", { desc = "Open Oil" })
 map("n", "<leader>.", ":vsplit | Oil<CR>", { desc = "Open Oil splited" })
 
 -- Split with terminal
-map("n", "<leader>;", ":split | term<CR>", { desc = "Split with terminal" })
+map("n", "<leader>;", ":split | term<CR>", { desc = "split terminal" })
+map("n", "<leader>:", ":vsplit | term<CR>", { desc = "vsplit terminal" })
 
 --- win navigation for terminal
 map("t", "<C-h>", "<C-\\><C-N><C-w>h", opts)
