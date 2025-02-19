@@ -1,8 +1,7 @@
 local servers = {
   html = {},
   lua_ls = {},
-  tsserver = {},
-  rust_analyzer = {},
+  ts_ls = {},
 }
 
 local ensure_installed = {}

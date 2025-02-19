@@ -1,12 +1,5 @@
 return {
   {
-    "rebelot/kanagawa.nvim",
-    init = function()
-      --- run colorschema command
-      vim.cmd.colorscheme("kanagawa-wave")
-    end,
-  },
-  {
     "folke/which-key.nvim",
     config = true,
     init = function()

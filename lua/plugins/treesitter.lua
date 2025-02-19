@@ -12,6 +12,12 @@ return {
           "vim",
           "vimdoc",
           "query",
+
+          -- optional
+          "bash",
+          "html",
+          "json",
+          "jsonc",
         },
         auto_install = true,
         indent = { enable = true },

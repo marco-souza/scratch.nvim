@@ -16,18 +16,8 @@ return {
     event = "InsertEnter",
     config = true,
     dependencies = {
+      "marco-souza/term.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
-    },
-  },
-  {
-    "marco-souza/term.nvim",
-    event = "VeryLazy",
-    -- dir = "~/workspace/marco-souza/term.nvim",
-    opts = {
-      shell = "zsh",
-      mappings = {
-        toggle_terminal = "<leader><leader>",
-      },
     },
   },
 }

@@ -17,13 +17,13 @@ return {
           b.formatting.eslint_d, -- so prettier works only on these filetypes
           b.formatting.prettier,
 
-          -- rust
-          b.formatting.rustfmt,
-
           -- go
           b.formatting.gofumpt,
           b.formatting.goimports_reviser,
           b.formatting.golines,
+
+          -- zig
+          b.formatting.zigfmt,
 
           -- other stuff
           b.diagnostics.todo_comments,
