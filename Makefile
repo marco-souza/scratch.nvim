@@ -1,4 +1,4 @@
-all: pr-ready
+all: up vim down
 
 fmt:
 	echo "===> Formatting"
