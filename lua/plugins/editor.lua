@@ -1,5 +1,12 @@
 return {
   {
+    "rebelot/kanagawa.nvim",
+    init = function()
+      --- run colorschema command
+      vim.cmd.colorscheme("kanagawa")
+    end,
+  },
+  {
     "folke/which-key.nvim",
     event = "BufWinEnter",
   },
