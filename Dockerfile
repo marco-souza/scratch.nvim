@@ -10,6 +10,8 @@ RUN apk add --no-cache \
     git \
     zig \
     neovim \
+    ripgrep \
+    lua-language-server \
     nodejs \
     npm;
 
