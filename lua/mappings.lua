@@ -93,7 +93,7 @@ map("n", "<leader>.", ":vsplit | Oil<CR>", { desc = "Open Oil splited" })
 
 -- Split with terminal
 map("n", "<leader>;", ":split | term<CR>", { desc = "split terminal" })
-map("n", "<leader>:", ":vsplit | term<CR>", { desc = "vsplit terminal" })
+map("n", "<leader>'", ":vsplit | term<CR>", { desc = "vsplit terminal" })
 
 --- win navigation for terminal
 map("t", "<C-h>", "<C-\\><C-N><C-w>h", opts)
@@ -103,7 +103,7 @@ map("t", "<C-l>", "<C-\\><C-N><C-w>l", opts)
 
 -- autocmd to open terminal in insert mode
 vim.cmd(
-  [[autocmd TermOpen term://* startinsert | setlocal nonumber norelativenumber | resize -15 ]]
+  [[autocmd TermOpen term://* startinsert | setlocal nonumber norelativenumber ]]
 )
 -- on enter terminal do the same
 vim.cmd(
