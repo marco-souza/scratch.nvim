@@ -22,7 +22,7 @@ return {
   {
     "marco-souza/term.nvim",
     event = "VeryLazy",
-    dir = "~/workspace/marco-souza/term.nvim",
+    -- dir = "~/workspace/marco-souza/term.nvim",
     opts = {
       shell = "zsh",
       mappings = {
