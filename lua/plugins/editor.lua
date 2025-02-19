@@ -1,11 +1,7 @@
 return {
   {
     "folke/which-key.nvim",
-    config = true,
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-    end,
+    event = "BufWinEnter",
   },
   {
     "nvim-lualine/lualine.nvim",
