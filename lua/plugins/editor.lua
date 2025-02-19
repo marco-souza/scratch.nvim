@@ -38,7 +38,7 @@ return {
   },
   {
     "airblade/vim-gitgutter",
-    event = "LspAttach",
+    event = "VeryLazy",
   },
   {
     "wakatime/vim-wakatime",

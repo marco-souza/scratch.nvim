@@ -37,7 +37,7 @@ return {
   },
   {
     "folke/todo-comments.nvim",
-    event = "LspAttach",
+    event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = config,
   },
