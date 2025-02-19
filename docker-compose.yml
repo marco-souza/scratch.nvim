@@ -1,0 +1,20 @@
+# docker-compose to execute neovim dockerfile
+
+services:
+  neovim:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: neovim
+    volumes:
+      - .:/root
+      # mount local folder to neovim config folder
+      - $PWD:/root/.config/nvim
+
+    tty: true
+    stdin_open: true
+    environment:
+      - DISPLAY=${DISPLAY}
+      - XAUTHORITY=${XAUTHORITY}
+    network_mode: host
+    restart: always
