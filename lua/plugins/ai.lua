@@ -1,6 +1,4 @@
 return {
-  { "github/copilot.vim", event = "VeryLazy" },
-
   -- setup ollero
   {
     "marco-souza/ollero.nvim",
@@ -29,7 +27,17 @@ return {
         "MunifTanjim/nui.nvim",
         --- The below dependencies are optional,
         "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-        "zbirenbaum/copilot.lua",      -- for providers='copilot'
+        {
+          "zbirenbaum/copilot.lua", -- for providers='copilot'
+          event = "VeryLazy",
+          config = true,
+          opts = { enable = true },
+        },
+        {
+          "zbirenbaum/copilot-cmp",
+          event = "VeryLazy",
+          config = true,
+        },
         {
           -- support for image pasting
           "HakonHarnes/img-clip.nvim",
