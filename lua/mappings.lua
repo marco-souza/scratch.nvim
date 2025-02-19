@@ -18,6 +18,11 @@ map("n", "<C-j>", "<C-w>j", opts)
 map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
+map("i", "<C-h>", "<Esc><C-w>h", opts)
+map("i", "<C-j>", "<Esc><C-w>j", opts)
+map("i", "<C-k>", "<Esc><C-w>k", opts)
+map("i", "<C-l>", "<Esc><C-w>l", opts)
+
 -- Close buffer
 map("n", "<leader>x", ":bd<CR>", opts)
 
@@ -84,3 +89,22 @@ map("n", "<leader>tt", toggle_theme, theme_opts)
 
 -- Oil.nvim
 map("n", "<leader>o", ":Oil<CR>", { desc = "Open Oil" })
+map("n", "<leader>.", ":vsplit | Oil<CR>", { desc = "Open Oil splited" })
+
+-- Split with terminal
+map("n", "<leader>;", ":split | term<CR>", { desc = "Split with terminal" })
+
+--- win navigation for terminal
+map("t", "<C-h>", "<C-\\><C-N><C-w>h", opts)
+map("t", "<C-j>", "<C-\\><C-N><C-w>j", opts)
+map("t", "<C-k>", "<C-\\><C-N><C-w>k", opts)
+map("t", "<C-l>", "<C-\\><C-N><C-w>l", opts)
+
+-- autocmd to open terminal in insert mode
+vim.cmd(
+  [[autocmd TermOpen term://* startinsert | setlocal nonumber norelativenumber]]
+)
+-- on enter terminal do the same
+vim.cmd(
+  [[autocmd WinEnter term://* startinsert | setlocal nonumber norelativenumber]]
+)
