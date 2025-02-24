@@ -1,6 +1,77 @@
 local servers = {
-  html = {},
-  lua_ls = {},
+  clangd = {},
+  rust_analyzer = {},
+  tailwindcss = {},
+  cssls = {},
+  eslint = {
+    settings = {
+      packageManager = "bun",
+    },
+  },
+  biome = {},
+  emmet_ls = {
+    filetypes = {
+      "css",
+      "eruby",
+      "html",
+      "javascript",
+      "javascriptreact",
+      "less",
+      "sass",
+      "scss",
+      "svelte",
+      "pug",
+      "typescriptreact",
+      "hbs",
+      "handlebars",
+    },
+  },
+  gopls = {
+    cmd = { "gopls" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    settings = {
+      gopls = {
+        completeUnimported = true,
+        usePlaceholders = true,
+        analyses = {
+          unusedparams = true,
+        },
+      },
+    },
+  },
+  lua_ls = {
+    {
+      Lua = {
+        runtime = {
+          version = "LuaJIT",
+        },
+        diagnostics = {
+          globals = { "vim" },
+        },
+        workspace = {
+          library = {
+            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+            [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+            [vim.fn.stdpath("data") .. "/lazy/ui/nvchad_types"] = true,
+            [vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy"] = true,
+          },
+          maxPreload = 100000,
+          preloadFileSize = 10000,
+        },
+      },
+    },
+  },
+  html = {
+    filetypes = { "html", "hbs", "handlebars" },
+  },
+  htmx = {
+    filetypes = { "html", "tsx", "gotmpl" },
+  },
+  zls = {
+    cmd = { "zls" },
+    filetypes = { "zig", "zir" },
+    single_file_support = true,
+  },
 }
 
 -- setup js server
