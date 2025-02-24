@@ -1,7 +1,6 @@
 local servers = {
   html = {},
   lua_ls = {},
-  ts_ls = {},
 }
 
 -- setup js server
