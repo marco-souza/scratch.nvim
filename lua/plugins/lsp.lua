@@ -4,11 +4,16 @@ local servers = {
 }
 
 -- setup js server
-local typescript = "denols"
-local files = vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true })
+local typescript = "ts_ls"
 
-if #files == 0 then
-  typescript = "ts_ls"
+local files = vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true })
+local is_deno_project = #files > 0
+
+if is_deno_project then
+  typescript = "denols"
+  vim.g.markdown_fenced_languages = {
+    "ts=typescript",
+  }
 end
 
 servers[typescript] = {}
