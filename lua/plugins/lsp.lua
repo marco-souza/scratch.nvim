@@ -4,6 +4,16 @@ local servers = {
   ts_ls = {},
 }
 
+-- setup js server
+local typescript = "denols"
+local files = vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true })
+
+if #files == 0 then
+  typescript = "ts_ls"
+end
+
+servers[typescript] = {}
+
 local ensure_installed = {}
 for server, _ in pairs(servers) do
   table.insert(ensure_installed, server)
