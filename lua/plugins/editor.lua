@@ -1,9 +1,9 @@
 return {
   {
-    "rebelot/kanagawa.nvim",
+    "rose-pine/neovim",
     init = function()
       --- run colorschema command
-      vim.cmd.colorscheme("kanagawa")
+      vim.cmd.colorscheme("rose-pine")
     end,
   },
   {
