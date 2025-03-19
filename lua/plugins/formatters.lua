@@ -8,8 +8,7 @@ local options = {
     -- Conform will run multiple formatters sequentially
     python = { "isort", "black" },
     -- Use a sub-list to run only the first available formatter
-    javascript = { "biome", "eslint", { "prettierd", "prettier" } },
-    typescript = { "deno_fmt" },
+    javascript = { "biome", "eslint", "prettierd", "prettier" },
     -- Conform will run multiple formatters sequentially
     go = { "goimports", "gofmt" },
     -- Use the "*" filetype to run formatters on all filetypes.
@@ -25,6 +24,11 @@ local options = {
     lsp_fallback = true,
   },
 }
+
+require("utils.deno").with_deno(function()
+  options.formatters_by_ft.typescript = { "deno_fmt" }
+  options.formatters_by_ft.typescriptreact = { "deno_fmt" }
+end)
 
 local function format()
   -- fallback to vim.lsp.buf.format()
