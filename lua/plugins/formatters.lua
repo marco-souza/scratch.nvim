@@ -8,7 +8,8 @@ local options = {
     -- Conform will run multiple formatters sequentially
     python = { "isort", "black" },
     -- Use a sub-list to run only the first available formatter
-    javascript = { "eslint", { "prettierd", "prettier" } },
+    javascript = { "biome", "eslint", { "prettierd", "prettier" } },
+    typescript = { "deno_fmt" },
     -- Conform will run multiple formatters sequentially
     go = { "goimports", "gofmt" },
     -- Use the "*" filetype to run formatters on all filetypes.
@@ -20,16 +21,12 @@ local options = {
 
   format_on_save = {
     -- These options will be passed to conform.format()
-    timeout_ms = 500,
+    timeout_ms = 300,
     lsp_fallback = true,
   },
 }
 
 local function format()
-  if vim.fn.exists(":IndentLinesToggle") > 0 then
-    vim.cmd("EslintFixAll")
-  end
-
   -- fallback to vim.lsp.buf.format()
   require("conform").format()
 end

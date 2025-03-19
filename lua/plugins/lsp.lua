@@ -72,6 +72,13 @@ local servers = {
     filetypes = { "zig", "zir" },
     single_file_support = true,
   },
+  denols = {
+    init_options = {
+      lint = true,
+      format = true,
+      unstable = true,
+    },
+  },
 }
 
 -- setup js server
