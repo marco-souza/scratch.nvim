@@ -25,7 +25,7 @@ local options = {
   },
 }
 
-require("utils.deno").with_deno(function()
+require("utils.js").with_deno(function()
   options.formatters_by_ft.typescript = { "deno_fmt" }
   options.formatters_by_ft.typescriptreact = { "deno_fmt" }
 end)

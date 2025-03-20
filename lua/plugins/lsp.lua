@@ -72,28 +72,31 @@ local servers = {
     filetypes = { "zig", "zir" },
     single_file_support = true,
   },
-  denols = {
+}
+
+-- setup js/ts server
+vim.g.markdown_fenced_languages = {
+  "ts=typescript",
+}
+
+local typescript = require("utils.js").runtime_matcher({
+  deno = "denols",
+  default = "ts_ls",
+})
+
+servers[typescript] = require("utils.js").runtime_matcher({
+  deno = {
     init_options = {
       lint = true,
       format = true,
       unstable = true,
     },
   },
-}
-
--- setup js server
-local typescript = "ts_ls"
-
-require("utils.deno").with_deno(function()
-  typescript = "denols"
-  vim.g.markdown_fenced_languages = {
-    "ts=typescript",
-  }
-end)
-
-servers[typescript] = {}
+  default = {},
+})
 
 local ensure_installed = {}
+
 for server, _ in pairs(servers) do
   table.insert(ensure_installed, server)
 end
