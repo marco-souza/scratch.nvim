@@ -6,13 +6,11 @@ local function with_deno(cb)
   local files = vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true })
 
   if #files == 0 then
-    vim.print("deno.json not found")
     -- not a deno project
     return
   end
 
   -- execute callback
-  vim.print("deno.json found")
   return cb()
 end
 
