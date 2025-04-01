@@ -11,6 +11,8 @@ local options = {
     javascript = { "biome", "eslint", "prettierd", "prettier" },
     -- Conform will run multiple formatters sequentially
     go = { "goimports", "gofmt" },
+    -- Solidity
+    solidity = { "forge_fmt" },
     -- Use the "*" filetype to run formatters on all filetypes.
     ["*"] = { "codespell" },
     -- Use the "_" filetype to run formatters on filetypes that don't
@@ -20,7 +22,7 @@ local options = {
 
   format_on_save = {
     -- These options will be passed to conform.format()
-    timeout_ms = 300,
+    timeout_ms = 600,
     lsp_fallback = true,
   },
 }
