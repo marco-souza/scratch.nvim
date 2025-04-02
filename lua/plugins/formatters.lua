@@ -9,6 +9,8 @@ local options = {
     python = { "isort", "black" },
     -- Use a sub-list to run only the first available formatter
     javascript = { "biome", "eslint", "prettierd", "prettier" },
+    typescript = { "biome", "eslint", "prettierd", "prettier" },
+    typescriptreact = { "biome", "eslint", "prettierd", "prettier" },
     -- Conform will run multiple formatters sequentially
     go = { "goimports", "gofmt" },
     -- Solidity
