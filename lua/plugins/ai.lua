@@ -18,7 +18,20 @@ return {
       event = "VeryLazy",
       lazy = false,
       version = false, -- set this if you want to always pull the latest change
-      opts = { provider = "copilot" },
+      opts = {
+        provider = "copilot",
+        system_prompt = function()
+          local hub = require("mcphub").get_hub_instance()
+
+          return hub:get_active_servers_prompt()
+        end,
+        custom_tools = function()
+          return {
+
+            require("mcphub.extensions.avante").mcp_tool(),
+          }
+        end,
+      },
       build = "make",
       dependencies = {
         "nvim-treesitter/nvim-treesitter",
@@ -79,7 +92,7 @@ return {
     -- uncomment this if you don't want mcp-hub to be available globally or can't use -g
     -- build = "bundled_build.lua",  -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
     opts = {
-      auto_approve = false,
+      auto_approve = true,
     },
   },
 }
