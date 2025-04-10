@@ -112,3 +112,6 @@ vim.cmd(
 vim.cmd(
   [[autocmd WinEnter term://* startinsert | setlocal nonumber norelativenumber]]
 )
+
+-- @mcp
+map("n", "<leader>am", ":MCPHub<CR>", { desc = "Open MCP Hub 🤖⚒️" })

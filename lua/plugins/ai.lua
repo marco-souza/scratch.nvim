@@ -78,6 +78,8 @@ return {
     build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
     -- uncomment this if you don't want mcp-hub to be available globally or can't use -g
     -- build = "bundled_build.lua",  -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
-    config = true,
+    opts = {
+      auto_approve = false,
+    },
   },
 }
