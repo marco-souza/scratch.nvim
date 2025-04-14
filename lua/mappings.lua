@@ -33,8 +33,7 @@ map("n", "<S-h>", ":bprevious<CR>", opts)
 -- Move text: https://vim.fandom.com/wiki/Moving_lines_up_or_down
 
 local sally_up = vim.tbl_deep_extend("force", { desc = "Move sally up" }, opts)
-local sally_down =
-  vim.tbl_deep_extend("force", { desc = "Move sally down" }, opts)
+local sally_down = vim.tbl_deep_extend("force", { desc = "Move sally down" }, opts)
 
 map("n", "<A-j>", ":m .+1<CR>==", sally_up)
 map("v", "<A-j>", ":m '>+1<CR>gv=gv", sally_up)
@@ -46,8 +45,7 @@ map("i", "<A-k>", "<Esc>:m .-2<CR>==gi", sally_down)
 
 -- Toggle checkbox item in markdown
 
-local toggle_checkbox_opts =
-  vim.tbl_deep_extend("force", { desc = "Toggle checkbox" }, opts)
+local toggle_checkbox_opts = vim.tbl_deep_extend("force", { desc = "Toggle checkbox" }, opts)
 
 local function toggle_checkbox()
   local line = vim.api.nvim_get_current_line()
@@ -115,3 +113,6 @@ vim.cmd(
 
 -- @mcp
 map("n", "<leader>am", ":MCPHub<CR>", { desc = "Open MCP Hub 🤖⚒️" })
+
+-- @presenter
+map("n", "<leader>M", ":Present show<CR>", { desc = "Present: open markdown slide 📓" })
