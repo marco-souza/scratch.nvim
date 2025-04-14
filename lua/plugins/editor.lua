@@ -50,4 +50,9 @@ return {
     "wakatime/vim-wakatime",
     event = "LspAttach",
   },
+  {
+    dir = "~/w/marco-souza/present.nvim/",
+    cmd = "Present",
+    opts = {},
+  },
 }
