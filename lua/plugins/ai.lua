@@ -16,18 +16,18 @@ return {
     {
       "yetone/avante.nvim",
       event = "VeryLazy",
-      lazy = false,
       version = false, -- set this if you want to always pull the latest change
       opts = {
         provider = "copilot",
+        behaviour = {
+          enable_cursor_planning_mode = true, -- enable cursor planning mode!
+        },
         system_prompt = function()
           local hub = require("mcphub").get_hub_instance()
-
           return hub:get_active_servers_prompt()
         end,
         custom_tools = function()
           return {
-
             require("mcphub.extensions.avante").mcp_tool(),
           }
         end,
@@ -41,7 +41,7 @@ return {
         --- The below dependencies are optional,
         "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
         {
-          "zbirenbaum/copilot.lua", -- for providers='copilot'
+          "zbirenbaum/copilot.lua",    -- for providers='copilot'
           event = "VeryLazy",
           config = true,
           opts = { enable = true },
@@ -87,7 +87,7 @@ return {
       "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
     },
     -- comment the following line to ensure hub will be ready at the earliest
-    cmd = "MCPHub", -- lazy load by default
+    cmd = "MCPHub",                          -- lazy load by default
     build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
     -- uncomment this if you don't want mcp-hub to be available globally or can't use -g
     -- build = "bundled_build.lua",  -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
