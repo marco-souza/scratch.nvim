@@ -51,8 +51,6 @@ local servers = {
         workspace = {
           library = {
             [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-            [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-            [vim.fn.stdpath("data") .. "/lazy/ui/nvchad_types"] = true,
             [vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy"] = true,
           },
           maxPreload = 100000,
@@ -172,6 +170,19 @@ return {
         opts = {
           automatic_installation = true,
           ensure_installed = ensure_installed,
+        },
+      },
+    },
+  },
+  -- lazydev
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        {
+          path = "${3rd}/luv/library",
+          words = { "vim%.uv" },
         },
       },
     },

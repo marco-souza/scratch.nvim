@@ -33,7 +33,8 @@ map("n", "<S-h>", ":bprevious<CR>", opts)
 -- Move text: https://vim.fandom.com/wiki/Moving_lines_up_or_down
 
 local sally_up = vim.tbl_deep_extend("force", { desc = "Move sally up" }, opts)
-local sally_down = vim.tbl_deep_extend("force", { desc = "Move sally down" }, opts)
+local sally_down =
+  vim.tbl_deep_extend("force", { desc = "Move sally down" }, opts)
 
 map("n", "<A-j>", ":m .+1<CR>==", sally_up)
 map("v", "<A-j>", ":m '>+1<CR>gv=gv", sally_up)
@@ -45,7 +46,8 @@ map("i", "<A-k>", "<Esc>:m .-2<CR>==gi", sally_down)
 
 -- Toggle checkbox item in markdown
 
-local toggle_checkbox_opts = vim.tbl_deep_extend("force", { desc = "Toggle checkbox" }, opts)
+local toggle_checkbox_opts =
+  vim.tbl_deep_extend("force", { desc = "Toggle checkbox" }, opts)
 
 local function toggle_checkbox()
   local line = vim.api.nvim_get_current_line()
@@ -74,16 +76,6 @@ end
 
 map("n", "<C-c><C-c>", toggle_checkbox, toggle_checkbox_opts)
 map("v", "<C-c><C-c>", v_toggle_checkbox, toggle_checkbox_opts)
-
--- Toggle Theme w/ base46
-
-local function toggle_theme()
-  require("base46").toggle_theme()
-end
-
-local theme_opts = vim.tbl_deep_extend("force", { desc = "Toggle Theme" }, opts)
-
-map("n", "<leader>tt", toggle_theme, theme_opts)
 
 -- Oil.nvim
 map("n", "<leader>o", ":Oil<CR>", { desc = "Open Oil" })
@@ -115,4 +107,9 @@ vim.cmd(
 map("n", "<leader>am", ":MCPHub<CR>", { desc = "Open MCP Hub 🤖⚒️" })
 
 -- @presenter
-map("n", "<leader>M", ":Present show<CR>", { desc = "Present: open markdown slide 📓" })
+map(
+  "n",
+  "<leader>M",
+  ":Present show<CR>",
+  { desc = "Present: open markdown slide 📓" }
+)

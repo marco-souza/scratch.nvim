@@ -8,7 +8,7 @@ return {
     },
     version = "1.*",
 
-    ---@module "blink.cmp"
+    ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
       keymap = {
@@ -26,13 +26,16 @@ return {
         documentation = { auto_show = true },
       },
       sources = {
-        default = { "lsp", "snippets", "copilot", "path", "buffer" },
+        default = { "lazydev", "lsp", "snippets", "copilot", "path", "buffer" },
         providers = {
           copilot = {
             name = "copilot",
             module = "blink-copilot",
-            score_offset = 100,
             async = true,
+          },
+          lazydev = {
+            name = "lazydev",
+            module = "lazydev.integrations.blink",
           },
         },
       },
