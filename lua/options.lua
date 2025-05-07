@@ -44,3 +44,10 @@ vim.opt.undofile = true
 
 -- leader
 vim.g.mapleader = " "
+
+-- set up diagnostics
+vim.diagnostic.config({
+  -- virtual_text = true,
+  -- virtual_lines = false,
+  virtual_lines = true,
+})

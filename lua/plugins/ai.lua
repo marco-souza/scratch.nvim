@@ -1,15 +1,4 @@
 return {
-  -- setup ollero
-  {
-    "marco-souza/ollero.nvim",
-    event = "VeryLazy",
-    opts = { model = "deepseek-r1:8b" },
-    -- dir = "~/w/marco-souza/ollero.nvim/",
-    dependencies = {
-      "marco-souza/term.nvim",
-      "nvim-telescope/telescope-ui-select.nvim",
-    },
-  },
 
   -- avante.nvim (nvim cursor-like)
   {
@@ -41,15 +30,22 @@ return {
         --- The below dependencies are optional,
         "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
         {
-          "zbirenbaum/copilot.lua",    -- for providers='copilot'
-          event = "VeryLazy",
-          config = true,
-          opts = { enable = true },
+          "zbirenbaum/copilot.lua", -- for providers='copilot'
+          cmd = "Copilot",
+          event = "LspAttach",
+          opts = {
+            suggestion = { enabled = false },
+            panel = { enabled = false },
+            filetypes = {
+              markdown = true,
+              help = true,
+            },
+          },
         },
+        -- copilot
         {
-          "zbirenbaum/copilot-cmp",
-          event = "VeryLazy",
-          config = true,
+          "giuxtaposition/blink-cmp-copilot",
+          enabled = false,
         },
         {
           -- support for image pasting
@@ -87,11 +83,10 @@ return {
       "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
     },
     -- comment the following line to ensure hub will be ready at the earliest
-    cmd = "MCPHub",                          -- lazy load by default
+    cmd = "MCPHub", -- lazy load by default
     build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
     -- uncomment this if you don't want mcp-hub to be available globally or can't use -g
     -- build = "bundled_build.lua",  -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
-    ---@type MCPHubOpts
     opts = {},
   },
 }
