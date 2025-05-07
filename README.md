@@ -6,10 +6,9 @@
 <a href="https://dotfyle.com/marco-souza/scratchnvim"><img src="https://dotfyle.com/marco-souza/scratchnvim/badges/leaderkey?style=flat" /></a>
 <a href="https://dotfyle.com/marco-souza/scratchnvim"><img src="https://dotfyle.com/marco-souza/scratchnvim/badges/plugin-manager?style=flat" /></a>
 
-
 ## Install Instructions
 
- > Install requires Neovim 0.11+. Always review the code before installing a configuration.
+> Install requires Neovim 0.11+. Always review the code before installing a configuration.
 
 Clone the repository and install the plugins:
 
@@ -28,81 +27,96 @@ NVIM_APPNAME=marco-souza/scratch.nvim/ nvim
 
 ### colorscheme
 
-+ [rebelot/kanagawa.nvim](https://dotfyle.com/plugins/rebelot/kanagawa.nvim)
+- [rose-pine/neovim](https://github.com/rose-pine/neovim)
+
 ### comment
 
-+ [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
-+ [numToStr/Comment.nvim](https://dotfyle.com/plugins/numToStr/Comment.nvim)
+- [folke/todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
+- [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
+
 ### completion
 
-+ [hrsh7th/nvim-cmp](https://dotfyle.com/plugins/hrsh7th/nvim-cmp)
+- [saghen/blink.cmp](https://github.com/saghen/blink.cmp)
+
 ### editing-support
 
-+ [windwp/nvim-ts-autotag](https://dotfyle.com/plugins/windwp/nvim-ts-autotag)
-+ [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
+- [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
+- [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
+
 ### file-explorer
 
-+ [nvim-neo-tree/neo-tree.nvim](https://dotfyle.com/plugins/nvim-neo-tree/neo-tree.nvim)
+- [stevearc/oil.nvim](https://github.com/stevearc/oil.nvim)
+
 ### fuzzy-finder
 
-+ [ibhagwan/fzf-lua](https://dotfyle.com/plugins/ibhagwan/fzf-lua)
-+ [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
+- [ibhagwan/fzf-lua](https://github.com/ibhagwan/fzf-lua)
+- [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+
 ### git
 
-+ [sindrets/diffview.nvim](https://dotfyle.com/plugins/sindrets/diffview.nvim)
-+ [NeogitOrg/neogit](https://dotfyle.com/plugins/NeogitOrg/neogit)
+- [sindrets/diffview.nvim](https://github.com/sindrets/diffview.nvim)
+- [NeogitOrg/neogit](https://github.com/NeogitOrg/neogit)
+
 ### indent
 
-+ [lukas-reineke/indent-blankline.nvim](https://dotfyle.com/plugins/lukas-reineke/indent-blankline.nvim)
+- [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+
 ### keybinding
 
-+ [folke/which-key.nvim](https://dotfyle.com/plugins/folke/which-key.nvim)
+- [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
+
 ### lsp
 
-+ [nvimtools/none-ls.nvim](https://dotfyle.com/plugins/nvimtools/none-ls.nvim)
-+ [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
-### lsp-installer
+- [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+- [williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
 
-+ [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
 ### marks
 
-+ [ThePrimeagen/harpoon](https://dotfyle.com/plugins/ThePrimeagen/harpoon)
+- [ThePrimeagen/harpoon](https://github.com/ThePrimeagen/harpoon)
+
 ### media
 
-+ [3rd/image.nvim](https://dotfyle.com/plugins/3rd/image.nvim)
+- [3rd/image.nvim](https://github.com/3rd/image.nvim)
+
 ### note-taking
 
-+ [nvim-neorg/neorg](https://dotfyle.com/plugins/nvim-neorg/neorg)
+- [nvim-neorg/neorg](https://github.com/nvim-neorg/neorg)
+
 ### nvim-dev
 
-+ [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
-+ [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
+- [nvim-lua/plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+- [MunifTanjim/nui.nvim](https://github.com/MunifTanjim/nui.nvim)
+
 ### plugin-manager
 
-+ [folke/lazy.nvim](https://dotfyle.com/plugins/folke/lazy.nvim)
+- [folke/lazy.nvim](https://github.com/folke/lazy.nvim)
+
 ### preconfigured
 
-+ [LazyVim/LazyVim](https://dotfyle.com/plugins/LazyVim/LazyVim)
+- [LazyVim/LazyVim](https://github.com/LazyVim/LazyVim)
+
 ### snippet
 
-+ [L3MON4D3/LuaSnip](https://dotfyle.com/plugins/L3MON4D3/LuaSnip)
-+ [rafamadriz/friendly-snippets](https://dotfyle.com/plugins/rafamadriz/friendly-snippets)
+- [L3MON4D3/LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+- [rafamadriz/friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
+
 ### startup
 
-+ [goolord/alpha-nvim](https://dotfyle.com/plugins/goolord/alpha-nvim)
+- [goolord/alpha-nvim](https://github.com/goolord/alpha-nvim)
+
 ### statusline
 
-+ [nvim-lualine/lualine.nvim](https://dotfyle.com/plugins/nvim-lualine/lualine.nvim)
+- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+
 ### syntax
 
-+ [kylechui/nvim-surround](https://dotfyle.com/plugins/kylechui/nvim-surround)
-+ [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
-+ [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
+- [kylechui/nvim-surround](https://github.com/kylechui/nvim-surround)
+- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [nvim-treesitter/nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
+
 ## Language Servers
 
-
-
- This readme was generated by [Dotfyle](https://dotfyle.com)
+This readme was generated by [Dotfyle](https://dotfyle.com)
 
 <div>
   <h4 align="center">
@@ -137,12 +151,14 @@ NVIM_APPNAME=marco-souza/scratch.nvim/ nvim
 This project is my neovim setup from scratch (`scratch.nvim`).
 
 It setups up a few basic thigs like:
+
 - editor configs
 - colorscheme
 - plugins
 - treesitter
 
 This was baes on:
+
 - [Understanding Neovim](https://www.youtube.com/watch?v=87AXw9Quy9U&list=PLx2ksyallYzW4WNYHD9xOFrPRYGlntAft)
 - [Neovim IDE from scratch](https://www.youtube.com/watch?v=ctH-a-1eUME&list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ)
 
@@ -163,4 +179,3 @@ git clone git@github.com:marco-souza/scratch.nvim.git $HOME/.config/nvim
 # or
 git clone https://github.com/marco-souza/scratch.nvim.git $HOME/.config/nvim
 ```
-
