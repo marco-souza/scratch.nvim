@@ -44,7 +44,7 @@ return {
   },
   {
     "airblade/vim-gitgutter",
-    event = "VeryLazy",
+    event = "BufWinEnter",
   },
   {
     "wakatime/vim-wakatime",

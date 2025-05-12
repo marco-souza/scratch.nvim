@@ -1,3 +1,14 @@
+local function typescript_formatter(bufnr)
+  local files = vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true })
+  local is_deno_project = #files > 0
+
+  if is_deno_project then
+    return "deno_fmt"
+  end
+
+  return { "biome", "eslint", "prettierd", "prettier" }
+end
+
 local options = {
   formatters_by_ft = {
     zig = { "zigfmt" },
@@ -5,12 +16,12 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     markdown = { "prettier" },
+    -- typescript formatter
+    javascript = typescript_formatter,
+    typescript = typescript_formatter,
+    typescriptreact = typescript_formatter,
     -- Conform will run multiple formatters sequentially
     python = { "isort", "black" },
-    -- Use a sub-list to run only the first available formatter
-    javascript = { "biome", "eslint", "prettierd", "prettier" },
-    typescript = { "biome", "eslint", "prettierd", "prettier" },
-    typescriptreact = { "biome", "eslint", "prettierd", "prettier" },
     -- Conform will run multiple formatters sequentially
     go = { "goimports", "gofmt" },
     -- Solidity
@@ -28,11 +39,6 @@ local options = {
     lsp_fallback = true,
   },
 }
-
-require("utils.js").with_deno(function()
-  options.formatters_by_ft.typescript = { "deno_fmt" }
-  options.formatters_by_ft.typescriptreact = { "deno_fmt" }
-end)
 
 local function format()
   -- fallback to vim.lsp.buf.format()

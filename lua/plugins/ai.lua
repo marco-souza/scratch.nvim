@@ -54,11 +54,6 @@ return {
             },
           },
         },
-        -- copilot
-        {
-          "giuxtaposition/blink-cmp-copilot",
-          enabled = false,
-        },
         {
           -- support for image pasting
           "HakonHarnes/img-clip.nvim",
