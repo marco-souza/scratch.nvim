@@ -57,9 +57,19 @@ function M.setup()
       -- Global mappings for diagnostics
       --
       -- See `:help vim.diagnostic.*` for documentation on any of the below functions
+      --
+      local goto_diagnostic = function(count)
+        return function()
+          vim.diagnostic.jump({
+            count = count,
+            float = true,
+          })
+        end
+      end
+
       vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-      vim.keymap.set("n", "[d", vim.diagnostic.get_prev)
-      vim.keymap.set("n", "]d", vim.diagnostic.get_next)
+      vim.keymap.set("n", "[d", goto_diagnostic(-1))
+      vim.keymap.set("n", "]d", goto_diagnostic(1))
       vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
       -- Global mappings for lsp

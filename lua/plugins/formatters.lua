@@ -3,7 +3,7 @@ local function typescript_formatter(bufnr)
   local is_deno_project = #files > 0
 
   if is_deno_project then
-    return "deno_fmt"
+    return { "deno_fmt" }
   end
 
   return { "biome", "eslint", "prettierd", "prettier" }
