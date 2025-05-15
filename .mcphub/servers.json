@@ -8,6 +8,25 @@
         "@modelcontextprotocol/server-filesystem",
         "."
       ]
+    },
+
+    "weather": {
+      "command": "deno",
+      "args": [
+        "run",
+        "-A",
+        "/Users/marco/w/marco-souza/marco.deno.dev/src/mcp/get_weather.ts"
+      ]
+    },
+
+
+    "dolar_hoje": {
+      "command": "deno",
+      "args": [
+        "run",
+        "-A",
+        "/Users/marco/w/marco-souza/marco.deno.dev/src/mcp/dolar_hoje.ts"
+      ]
     }
   }
 }
