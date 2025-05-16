@@ -135,7 +135,7 @@ return {
 
       -- Logging configuration
       log = {
-        level = vim.log.levels.DEBUG,
+        level = vim.log.levels.WARN,
         to_file = false,
         file_path = nil,
         prefix = "MCPHub",
