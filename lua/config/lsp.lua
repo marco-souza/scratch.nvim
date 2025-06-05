@@ -18,7 +18,7 @@ local servers = {
   "cssls",
   "biome",
   "eslint",
-  "emmet_ls",
+  "emmet_language_server",
   "gopls",
   "lua_ls",
   "html",

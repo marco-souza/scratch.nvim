@@ -38,7 +38,7 @@ return {
         documentation = { auto_show = true },
       },
       sources = {
-        default = { "lazydev", "lsp", "snippets", "copilot", "path", "buffer" },
+        default = { "copilot", "lazydev", "lsp", "snippets", "path", "buffer" },
         providers = {
           copilot = {
             name = "copilot",
@@ -53,6 +53,18 @@ return {
       },
       fuzzy = {
         implementation = "prefer_rust_with_warning",
+        sorts = {
+          -- sort emmet after lsp results -- ref https://github.com/Saghen/blink.cmp/issues/1162
+          function(a, b)
+            if a.source_name ~= "LSP" or b.source_name ~= "LSP" then
+              return
+            end
+            local name = vim.lsp.get_client_by_id(b.client_id).name
+            return name == "emmet_language_server"
+          end,
+          "score",
+          "sort_text",
+        },
       },
     },
     opts_extend = { "sources.default" },
