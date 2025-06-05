@@ -13,13 +13,15 @@ return {
           enable_cursor_planning_mode = true, -- enable cursor planning mode!
         },
 
-        vendors = {
+        providers = {
           groq = { -- define groq provider
             __inherited_from = "openai",
             api_key_name = "GROQ_API_KEY",
             endpoint = "https://api.groq.com/openai/v1/",
             model = "llama-3.3-70b-versatile",
-            max_completion_tokens = 32768, -- remember to increase this value, otherwise it will stop generating halfway
+            extra_request_body = {
+              max_completion_tokens = 32768, -- remember to increase this value, otherwise it will stop generating halfway
+            },
           },
         },
 
