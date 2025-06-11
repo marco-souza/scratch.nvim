@@ -40,11 +40,30 @@ function M.list_servers()
   return ensure_installed
 end
 
+local function setup_filetypes()
+  vim.filetype.add({
+    extension = {
+      conf = "conf",
+      env = "dotenv",
+    },
+    filename = {
+      [".env"] = "dotenv",
+      ["tsconfig.json"] = "jsonc",
+      [".yamlfmt"] = "yaml",
+    },
+    pattern = {
+      ["^%.?env%.?[a-z]$"] = "dotenv",
+    },
+  })
+end
+
 function M.setup()
   -- setup lsp servers
   for _, server in ipairs(M.list_servers()) do
     vim.lsp.enable(server)
   end
+
+  -- setup_filetypes()
 
   -- Use LspAttach autocommand to only map the following keys
   -- after the language server attaches to the current buffer
