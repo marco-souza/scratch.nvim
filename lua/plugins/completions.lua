@@ -30,7 +30,6 @@ return {
         ["<S-Tab>"] = { "select_prev", "fallback" },
         ["<CR>"] = { "accept", "fallback" },
         ["<C-e>"] = { "hide" },
-        ["<C-s>"] = { "hide" },
       },
       appearance = {
         nerd_font_variant = "mono",
