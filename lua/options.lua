@@ -36,7 +36,7 @@ vim.opt.termguicolors = true
 -- fold
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevelstart = 1
+vim.opt.foldlevelstart = 2
 
 -- persistent undo
 vim.opt.undodir = vim.fn.expand("~/.config/nvim.undo")

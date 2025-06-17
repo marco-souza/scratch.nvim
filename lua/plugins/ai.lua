@@ -6,9 +6,13 @@ return {
       "yetone/avante.nvim",
       event = "VeryLazy",
       version = false, -- set this if you want to always pull the latest change
+      ---@module 'avante'
+      ---@type avante.Config
       opts = {
         provider = "copilot",
         cursor_applying_provider = "groq",
+        hints = { enable = true },
+
         behaviour = {
           enable_cursor_planning_mode = true, -- enable cursor planning mode!
         },
@@ -25,6 +29,7 @@ return {
           },
         },
 
+        -- MCPHub integration
         system_prompt = function()
           local hub = require("mcphub").get_hub_instance()
           if hub then
