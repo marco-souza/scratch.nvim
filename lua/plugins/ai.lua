@@ -6,8 +6,6 @@ return {
       "yetone/avante.nvim",
       event = "VeryLazy",
       version = false, -- set this if you want to always pull the latest change
-      ---@module 'avante'
-      ---@type avante.Config
       opts = {
         provider = "copilot",
         cursor_applying_provider = "groq",
@@ -23,9 +21,6 @@ return {
             api_key_name = "GROQ_API_KEY",
             endpoint = "https://api.groq.com/openai/v1/",
             model = "llama-3.3-70b-versatile",
-            extra_request_body = {
-              max_completion_tokens = 32768, -- remember to increase this value, otherwise it will stop generating halfway
-            },
           },
         },
 
@@ -84,16 +79,14 @@ return {
     -- comment the following line to ensure hub will be ready at the earliest
     cmd = "MCPHub", -- lazy load by default
     build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
-    ---@module 'mcphub'
-    ---@type MCPHub.Config
     opts = {
       --- reference https://github.com/ravitemer/mcphub.nvim?tab=readme-ov-file#advanced-configuration
       port = 37373, -- Default port for MCP Hub
-      config = vim.fn.expand("~/.config/nvim/.mcphub/servers.json"), -- Absolute path to config file location (will create if not exists)
+      config = vim.fn.expand("~/.config/nvim/.mcphub/servers.json"), -- Absolute path to config file location
       auto_approve = true,
       auto_toggle_mcp_servers = true,
       native_servers = {},
-      shutdown_delay = 600000, -- Delay in ms before shutting down the server when last instance closes (default: 10 minutes)
+      shutdown_delay = 10 * 60 * 1000, -- Delay in ms before shutting down the server when last instance closes
       use_bundled_binary = false, -- Uses bundled mcp-hub script instead of global installation
 
       extensions = {
@@ -111,16 +104,24 @@ return {
           zindex = 50,
           border = "rounded", -- "none", "single", "double", "rounded", "solid", "shadow"
         },
-        wo = { -- window-scoped options (vim.wo)
-        },
       },
 
       -- Event callbacks
       on_ready = function(hub)
         -- Called when hub is ready
+        vim.notify(
+          "MCPHub is ready!",
+          vim.log.levels.INFO,
+          { title = "MCPHub", hub = hub }
+        )
       end,
       on_error = function(err)
         -- Called on errors
+        vim.notify(
+          "MCPHub Error: " .. err,
+          vim.log.levels.ERROR,
+          { title = "MCPHub" }
+        )
       end,
 
       -- Logging configuration

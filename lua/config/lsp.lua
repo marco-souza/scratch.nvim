@@ -53,6 +53,7 @@ local function setup_filetypes()
     },
     pattern = {
       ["^%.?env%.?[a-z]$"] = "dotenv",
+      ["^%.?ejs$"] = "html",
     },
   })
 end
@@ -63,7 +64,7 @@ function M.setup()
     vim.lsp.enable(server)
   end
 
-  -- setup_filetypes()
+  setup_filetypes()
 
   -- Use LspAttach autocommand to only map the following keys
   -- after the language server attaches to the current buffer

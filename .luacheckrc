@@ -9,4 +9,7 @@ globals = {
   "Harpoon_cmd_win_id",
   "Harpoon_cmd_bufh",
 }
+
 read_globals = { "vim" }
+
+ignore = { "122" }

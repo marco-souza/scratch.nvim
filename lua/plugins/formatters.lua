@@ -1,4 +1,4 @@
-local function typescript_formatter(bufnr)
+local function typescript_formatter()
   local files = vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true })
   local is_deno_project = #files > 0
 
