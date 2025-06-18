@@ -2,6 +2,7 @@ return {
   {
     "saghen/blink.cmp",
     event = "LspAttach",
+    version = "1.*",
     dependencies = {
       "rafamadriz/friendly-snippets",
       "fang2hou/blink-copilot",
@@ -17,9 +18,18 @@ return {
           },
         },
       },
-    },
-    version = "1.*",
 
+      -- add blink.compat
+      {
+        "saghen/blink.compat",
+        -- use v2.* for blink.cmp v1.*
+        version = "2.*",
+        -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
+        lazy = true,
+        -- make sure to set opts so that lazy.nvim calls blink.compat's setup
+        opts = {},
+      },
+    },
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
@@ -38,7 +48,17 @@ return {
         documentation = { auto_show = true },
       },
       sources = {
-        default = { "copilot", "lazydev", "lsp", "snippets", "path", "buffer" },
+        default = {
+          "avante_commands",
+          "avante_files",
+          "avante_mentions",
+          "copilot",
+          "lazydev",
+          "lsp",
+          "snippets",
+          "path",
+          "buffer",
+        },
         providers = {
           copilot = {
             name = "copilot",
@@ -48,6 +68,25 @@ return {
           lazydev = {
             name = "lazydev",
             module = "lazydev.integrations.blink",
+          },
+
+          avante_commands = {
+            name = "avante_commands",
+            module = "blink.compat.source",
+            score_offset = 90, -- show at a higher priority than lsp
+            opts = {},
+          },
+          avante_files = {
+            name = "avante_commands",
+            module = "blink.compat.source",
+            score_offset = 100, -- show at a higher priority than lsp
+            opts = {},
+          },
+          avante_mentions = {
+            name = "avante_mentions",
+            module = "blink.compat.source",
+            score_offset = 1000, -- show at a higher priority than lsp
+            opts = {},
           },
         },
       },
