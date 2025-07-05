@@ -79,7 +79,7 @@ map("v", "<C-c><C-c>", v_toggle_checkbox, toggle_checkbox_opts)
 
 -- Oil.nvim
 map("n", "<leader>o", ":Oil<CR>", { desc = "Open Oil" })
-map("n", "<leader>.", ":vsplit | Oil<CR>", { desc = "Open Oil splited" })
+map("n", "<leader>.", ":vsplit | Oil<CR>", { desc = "Open Oil vertical" })
 
 -- Split with terminal
 map("n", "<leader>;", ":split | term<CR>", { desc = "split terminal" })

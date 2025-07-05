@@ -2,8 +2,8 @@ return {
   {
     "marco-souza/ollero.nvim",
     event = "VeryLazy",
-    dir = "~/w/marco-souza/ollero.nvim",
     opts = {},
+    -- dir = "~/w/marco-souza/ollero.nvim",
     -- build = ":!go install github.com/marco-souza/omg@latest",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -80,7 +80,7 @@ return {
     },
   },
 
-  -- mcp.nvim (extend llm funcitonality with tools)
+  -- mcp.nvim (extend llm functionality with tools)
   {
     "ravitemer/mcphub.nvim",
     dependencies = {
