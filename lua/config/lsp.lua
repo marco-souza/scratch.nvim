@@ -23,7 +23,8 @@ local servers = {
   "lua_ls",
   "html",
   "htmx",
-  "gleam",
+  -- "gleam",
+  "elixirls",
   ts_server,
 }
 

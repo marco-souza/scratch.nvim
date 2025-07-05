@@ -26,6 +26,13 @@ local options = {
     go = { "goimports", "gofmt" },
     -- Solidity
     solidity = { "forge_fmt" },
+
+    -- Elixir
+    elixir = { "mix" },
+    eelixir = { "mix" },
+    heex = { "mix" },
+    surface = { "mix" },
+
     -- Use the "*" filetype to run formatters on all filetypes.
     ["*"] = { "codespell" },
     -- Use the "_" filetype to run formatters on filetypes that don't
