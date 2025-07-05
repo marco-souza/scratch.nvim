@@ -29,12 +29,13 @@ return {
       local elixirls = require("elixir.elixirls")
 
       elixir.setup({
-        nextls = { enable = true },
         elixirls = {
           enable = true,
           settings = elixirls.settings({
-            dialyzerEnabled = false,
+            dialyzerEnabled = true,
             enableTestLenses = false,
+            fetchDeps = true,
+            suggestSpecs = true,
           }),
           on_attach = function(client, bufnr)
             vim.keymap.set(
