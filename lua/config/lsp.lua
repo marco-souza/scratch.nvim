@@ -3,17 +3,17 @@ local ts_selector = require("config.ts_selector")
 local M = {}
 
 M.servers = {
-  clangd = nil,
-  rust_analyzer = nil,
-  tailwindcss = nil,
-  cssls = nil,
-  biome = nil,
-  eslint = nil,
-  emmet_language_server = nil,
-  gopls = nil,
-  lua_ls = nil,
-  html = nil,
-  htmx = nil,
+  "clangd",
+  "rust_analyzer",
+  "tailwindcss",
+  "cssls",
+  "biome",
+  "eslint",
+  "emmet_language_server",
+  "gopls",
+  "lua_ls",
+  "html",
+  "htmx",
   denols = {
     enable = ts_selector({ node = false, deno = true }),
     root_markers = { "deno.json", "deno.jsonc", "deno.lock" },
@@ -35,7 +35,7 @@ M.servers = {
   },
 }
 
-M.ensure_installed = vim.tbl_keys(M.servers)
+M.installed_servers = {}
 
 local function setup_filetypes()
   vim.filetype.add({
@@ -58,16 +58,28 @@ end
 function M.setup()
   -- setup lsp servers
   for server, config in pairs(M.servers) do
-    if config ~= nil then
+    if type(config) == "table" then
+      -- skip is config is disabled
       if not config.enable then
         goto continue
       end
 
-      -- set config
+      -- set lsp config
       vim.lsp.config(server, config)
+      goto enable
     end
 
+    if type(config) == "string" then
+      -- if config is string, replace server (idx position)
+      server = config
+    end
+
+    ::enable::
+
+    ---Enable server
+    ---@diagnostic disable-next-line: param-type-mismatch
     vim.lsp.enable(server)
+    table.insert(M.installed_servers, server)
 
     ::continue::
   end
