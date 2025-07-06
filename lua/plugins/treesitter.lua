@@ -13,6 +13,7 @@ local ensure_installed = {
   "json",
 
   -- backend
+  "elixir",
   "python",
   "lua",
   "go",

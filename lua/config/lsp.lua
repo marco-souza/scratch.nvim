@@ -1,14 +1,30 @@
+local ts_selector = require("config.ts_selector")
+
 local M = {}
 
 local function ts_server()
-  local files = vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true })
-  local is_deno_project = #files > 0
+  return ts_selector({
+    node = "ts_ls",
+    deno = "denols",
+  })
+end
 
-  if is_deno_project then
-    return "denols"
-  end
-
-  return "ts_ls"
+local function setup_filetypes()
+  vim.filetype.add({
+    extension = {
+      conf = "conf",
+      env = "dotenv",
+    },
+    filename = {
+      [".env"] = "dotenv",
+      ["tsconfig.json"] = "jsonc",
+      [".yamlfmt"] = "yaml",
+    },
+    pattern = {
+      ["^%.?env%.?[a-z]$"] = "dotenv",
+      ["^%.?ejs$"] = "html",
+    },
+  })
 end
 
 local servers = {
@@ -38,24 +54,6 @@ function M.list_servers()
   end
 
   return ensure_installed
-end
-
-local function setup_filetypes()
-  vim.filetype.add({
-    extension = {
-      conf = "conf",
-      env = "dotenv",
-    },
-    filename = {
-      [".env"] = "dotenv",
-      ["tsconfig.json"] = "jsonc",
-      [".yamlfmt"] = "yaml",
-    },
-    pattern = {
-      ["^%.?env%.?[a-z]$"] = "dotenv",
-      ["^%.?ejs$"] = "html",
-    },
-  })
 end
 
 function M.setup()

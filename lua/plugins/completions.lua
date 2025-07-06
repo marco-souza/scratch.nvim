@@ -41,30 +41,46 @@ return {
         ["<CR>"] = { "accept", "fallback" },
         ["<C-e>"] = { "hide" },
       },
+
       appearance = {
         nerd_font_variant = "mono",
       },
+
       completion = {
         documentation = { auto_show = true },
       },
+
+      fuzzy = {
+        implementation = "prefer_rust_with_warning",
+      },
+
       sources = {
         default = {
+          -- lsp
+          "lsp",
+          "lazydev",
+          "path",
+
+          -- avante
           "avante_commands",
           "avante_files",
           "avante_mentions",
+
+          -- snippets
           "copilot",
-          "lazydev",
-          "lsp",
           "snippets",
-          "path",
+
+          -- buffer
           "buffer",
         },
+
         providers = {
           copilot = {
             name = "copilot",
             module = "blink-copilot",
             async = true,
           },
+
           lazydev = {
             name = "lazydev",
             module = "lazydev.integrations.blink",
@@ -73,11 +89,11 @@ return {
           avante_commands = {
             name = "avante_commands",
             module = "blink.compat.source",
-            score_offset = 90, -- show at a higher priority than lsp
+            score_offset = 100, -- show at a higher priority than lsp
             opts = {},
           },
           avante_files = {
-            name = "avante_commands",
+            name = "avante_files",
             module = "blink.compat.source",
             score_offset = 100, -- show at a higher priority than lsp
             opts = {},
@@ -89,9 +105,6 @@ return {
             opts = {},
           },
         },
-      },
-      fuzzy = {
-        implementation = "prefer_rust_with_warning",
       },
     },
     opts_extend = { "sources.default" },

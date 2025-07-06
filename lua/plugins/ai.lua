@@ -1,17 +1,4 @@
 return {
-  {
-    "marco-souza/ollero.nvim",
-    event = "VeryLazy",
-    opts = {},
-    -- dir = "~/w/marco-souza/ollero.nvim",
-    -- build = ":!go install github.com/marco-souza/omg@latest",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "marco-souza/term.nvim",
-      "nvim-telescope/telescope-ui-select.nvim",
-    },
-  },
-
   -- avante.nvim (nvim cursor-like)
   {
     "yetone/avante.nvim",
@@ -83,12 +70,10 @@ return {
   -- mcp.nvim (extend llm functionality with tools)
   {
     "ravitemer/mcphub.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
-    },
-    -- comment the following line to ensure hub will be ready at the earliest
-    cmd = "MCPHub", -- lazy load by default
+    cmd = "MCPHub",
+    event = "VeryLazy",
     build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
+    dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
       --- reference https://github.com/ravitemer/mcphub.nvim?tab=readme-ov-file#advanced-configuration
       port = 37373, -- Default port for MCP Hub
@@ -118,20 +103,10 @@ return {
 
       -- Event callbacks
       on_ready = function(hub)
-        -- Called when hub is ready
-        vim.notify(
-          "MCPHub is ready!",
-          vim.log.levels.INFO,
-          { title = "MCPHub", hub = hub }
-        )
+        -- INFO: Called when hub is ready
       end,
       on_error = function(err)
-        -- Called on errors
-        vim.notify(
-          "MCPHub Error: " .. err,
-          vim.log.levels.ERROR,
-          { title = "MCPHub" }
-        )
+        -- INFO: Called on errors
       end,
 
       -- Logging configuration

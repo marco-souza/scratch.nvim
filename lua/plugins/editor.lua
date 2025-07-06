@@ -1,14 +1,11 @@
 return {
+  -- init
   {
     "rose-pine/neovim",
     init = function()
       --- run colorschema command
       vim.cmd.colorscheme("rose-pine")
     end,
-  },
-  {
-    "folke/which-key.nvim",
-    event = "BufWinEnter",
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -24,35 +21,58 @@ return {
     end,
   },
   {
+    "stevearc/oil.nvim",
+    lazy = false,
+    opts = {
+      default_file_explorer = true,
+
+      view_options = {
+        -- Show files and directories that start with "."
+        show_hidden = true,
+      },
+
+      -- Configuration for the floating window in oil.open_float
+      float = {
+        padding = 2,
+        max_width = 0,
+        max_height = 0,
+        border = "rounded",
+        preview_split = "auto",
+        win_options = {
+          winblend = 0,
+        },
+      },
+    },
+    -- Optional dependencies
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+  },
+
+  -- very lazy
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+  },
+  { "lewis6991/gitsigns.nvim", event = "VeryLazy" },
+
+  -- lsp attach
+  {
     "windwp/nvim-autopairs",
-    event = "InsertEnter",
+    event = "LspAttach",
     config = true,
   },
   {
     "windwp/nvim-ts-autotag",
-    event = "InsertEnter",
+    event = "LspAttach",
     config = true,
   },
   {
     "kylechui/nvim-surround",
-    event = "InsertEnter",
+    event = "LspAttach",
     config = true,
-  },
-  {
-    "dstein64/vim-startuptime",
-    cmd = "StartupTime",
-  },
-  {
-    "airblade/vim-gitgutter",
-    event = "BufWinEnter",
   },
   {
     "wakatime/vim-wakatime",
     event = "LspAttach",
-  },
-  {
-    dir = "~/w/marco-souza/present.nvim/",
-    cmd = "Present",
-    opts = {},
   },
 }
