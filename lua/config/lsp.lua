@@ -2,12 +2,40 @@ local ts_selector = require("config.ts_selector")
 
 local M = {}
 
-local function ts_server()
-  return ts_selector({
-    node = "ts_ls",
-    deno = "denols",
-  })
-end
+M.servers = {
+  clangd = nil,
+  rust_analyzer = nil,
+  tailwindcss = nil,
+  cssls = nil,
+  biome = nil,
+  eslint = nil,
+  emmet_language_server = nil,
+  gopls = nil,
+  lua_ls = nil,
+  html = nil,
+  htmx = nil,
+  denols = {
+    enable = ts_selector({ node = false, deno = true }),
+    root_markers = { "deno.json", "deno.jsonc", "deno.lock" },
+    settings = {
+      deno = {
+        suggest = {
+          imports = {
+            hosts = {
+              ["https://deno.land"] = true,
+            },
+          },
+        },
+      },
+    },
+  },
+  ts_ls = {
+    enable = ts_selector({ node = true, deno = false }),
+    root_markers = { "package.json", "tsconfig.json", "jsconfig.json" },
+  },
+}
+
+M.ensure_installed = vim.tbl_keys(M.servers)
 
 local function setup_filetypes()
   vim.filetype.add({
@@ -27,55 +55,30 @@ local function setup_filetypes()
   })
 end
 
-local servers = {
-  "clangd",
-  "rust_analyzer",
-  "tailwindcss",
-  "cssls",
-  "biome",
-  "eslint",
-  "emmet_language_server",
-  "gopls",
-  "lua_ls",
-  "html",
-  "htmx",
-  ts_server,
-}
-
-function M.list_servers()
-  local ensure_installed = {}
-
-  for _, server in ipairs(servers) do
-    if type(server) == "string" then
-      table.insert(ensure_installed, server)
-    elseif type(server) == "function" then
-      table.insert(ensure_installed, server())
-    end
-  end
-
-  return ensure_installed
-end
-
 function M.setup()
   -- setup lsp servers
-  for _, server in ipairs(M.list_servers()) do
+  for server, config in pairs(M.servers) do
+    if config ~= nil then
+      if not config.enable then
+        goto continue
+      end
+
+      -- set config
+      vim.lsp.config(server, config)
+    end
+
     vim.lsp.enable(server)
+
+    ::continue::
   end
 
   setup_filetypes()
 
-  -- Use LspAttach autocommand to only map the following keys
-  -- after the language server attaches to the current buffer
   vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(ev)
-      -- Enable completion triggered by <c-x><c-o>
       vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-      -- Global mappings for diagnostics
-      --
-      -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-      --
       local goto_diagnostic = function(count)
         return function()
           vim.diagnostic.jump({

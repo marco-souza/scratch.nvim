@@ -1,13 +1,9 @@
-local function typescript_formatter()
-  local files = vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true })
-  local is_deno_project = #files > 0
+local ts_selector = require("config.ts_selector")
 
-  if is_deno_project then
-    return { "deno_fmt" }
-  end
-
-  return { "biome", "eslint", "prettierd", "prettier" }
-end
+local ts_server = ts_selector({
+  node = { "biome", "eslint", "prettierd", "prettier" },
+  deno = { "deno_fmt" },
+})
 
 local options = {
   formatters_by_ft = {
@@ -16,10 +12,12 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     markdown = { "prettier" },
+
     -- typescript formatter
-    javascript = typescript_formatter,
-    typescript = typescript_formatter,
-    typescriptreact = typescript_formatter,
+    javascript = ts_server,
+    typescript = ts_server,
+    typescriptreact = ts_server,
+
     -- Conform will run multiple formatters sequentially
     python = { "isort", "black" },
     -- Conform will run multiple formatters sequentially

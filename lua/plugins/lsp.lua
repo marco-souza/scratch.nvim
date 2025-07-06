@@ -12,8 +12,8 @@ return {
       {
         "mason-org/mason-lspconfig.nvim",
         opts = {
-          automatic_enable = true,
-          ensure_installed = lsp.list_servers(),
+          automatic_enable = false,
+          ensure_installed = lsp.ensure_installed,
         },
       },
     },
