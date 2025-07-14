@@ -14,6 +14,7 @@ M.servers = {
   "lua_ls",
   "html",
   "htmx",
+  "gleam",
   denols = {
     enable = ts_selector({ node = false, deno = true }),
     root_markers = { "deno.json", "deno.jsonc", "deno.lock" },
@@ -84,7 +85,7 @@ function M.setup()
     ::continue::
   end
 
-  setup_filetypes()
+  -- setup_filetypes()
 
   vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
