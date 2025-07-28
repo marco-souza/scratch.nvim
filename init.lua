@@ -26,3 +26,6 @@ require("lazy").setup({
   },
   defaults = { lazy = true },
 })
+
+-- INFO: switch to minimal Setup
+-- require("mini")
