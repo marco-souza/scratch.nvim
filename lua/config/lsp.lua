@@ -11,10 +11,26 @@ M.servers = {
   "eslint",
   "emmet_language_server",
   "gopls",
-  "lua_ls",
   "html",
   "htmx",
   "gleam",
+  lua_ls = {
+    settings = {
+      Lua = {
+        runtime = {
+          version = "LuaJIT",
+          special = { reload = "require" },
+        },
+        workspace = {
+          library = {
+            vim.fn.expand("$VIMRUNTIME/lua"),
+            vim.fn.expand("$VIMRUNTIME/lua/vim/lsp"),
+            vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy",
+          },
+        },
+      },
+    },
+  },
   denols = {
     enable = ts_selector({ node = false, deno = true }),
     root_markers = { "deno.json", "deno.jsonc", "deno.lock" },
@@ -37,24 +53,6 @@ M.servers = {
 }
 
 M.installed_servers = {}
-
-local function setup_filetypes()
-  vim.filetype.add({
-    extension = {
-      conf = "conf",
-      env = "dotenv",
-    },
-    filename = {
-      [".env"] = "dotenv",
-      ["tsconfig.json"] = "jsonc",
-      [".yamlfmt"] = "yaml",
-    },
-    pattern = {
-      ["^%.?env%.?[a-z]$"] = "dotenv",
-      ["^%.?ejs$"] = "html",
-    },
-  })
-end
 
 function M.setup()
   -- setup lsp servers
