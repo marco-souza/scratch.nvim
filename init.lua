@@ -1,5 +1,10 @@
+require("repo")
+
+return {}
+
 -- nvim startup
 require("options")
+require("mappings")
 require("mappings")
 
 -- install lazy
