@@ -28,10 +28,10 @@ vim.pack.add({
   { src = "https://github.com/folke/which-key.nvim" },
   { src = "https://github.com/NeogitOrg/neogit" },
   -- dependencies
-    { src = "https://github.com/nvim-lua/plenary.nvim" },
-    { src = "https://github.com/sindrets/diffview.nvim" },
-    { src = "https://github.com/nvim-telescope/telescope.nvim" },
-    { src = "https://github.com/ibhagwan/fzf-lua" },
+  { src = "https://github.com/nvim-lua/plenary.nvim" },
+  { src = "https://github.com/sindrets/diffview.nvim" },
+  { src = "https://github.com/nvim-telescope/telescope.nvim" },
+  { src = "https://github.com/ibhagwan/fzf-lua" },
 })
 
 vim.cmd("colorscheme vague")
@@ -55,17 +55,45 @@ vim.lsp.enable({
   "lua_ls",
   "gopls",
   "markdown",
+  "expert_ls",
 })
-vim.keymap.set("n", ",<leader>gf", vim.lsp.buf.format, { desc = "Format buffer" })
+
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      runtime = {
+        version = "LuaJIT",
+        special = { reload = "require" },
+      },
+      workspace = {
+        library = {
+          vim.fn.expand("$VIMRUNTIME/lua"),
+          vim.fn.expand("$VIMRUNTIME/lua/vim/lsp"),
+          vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy",
+        },
+      },
+    },
+  },
+})
 
 -- completions
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client == nil then
+      return
+    end
 
     if client:supports_method("textDocument/completion") then
       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
     end
+  end
+})
+
+-- format on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  callback = function()
+    vim.lsp.buf.format({ async = false })
   end
 })
 
