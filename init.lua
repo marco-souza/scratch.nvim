@@ -6,11 +6,11 @@ local version = os.getenv("DISTRO") or "mini"
 print("distro: " .. version)
 
 if version == "mini" then
-  return require("mini")
+  return require("distros.mini")
 end
 
 if version == "kickstart" then
-  return require("repos.kickstart.nvim")
+  return require("distros.kickstart")
 end
 
 -- nvim startup
@@ -42,6 +42,3 @@ require("lazy").setup({
   },
   defaults = { lazy = true },
 })
-
--- INFO: switch to minimal Setup
--- require("mini")
