@@ -1,6 +1,15 @@
-require("repo")
+---@alias NeovimDistro "mini" | "kickstart" | "default"
 
-return {}
+---@type NeovimDistro
+local version = os.getenv("DISTRO") or "mini"
+
+if version == "mini" then
+  return require("mini")
+end
+
+if version == "kickstart" then
+  return require("kickstart")
+end
 
 -- nvim startup
 require("options")
