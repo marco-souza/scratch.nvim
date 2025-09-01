@@ -3,12 +3,14 @@
 ---@type NeovimDistro
 local version = os.getenv("DISTRO") or "mini"
 
+print("distro: " .. version)
+
 if version == "mini" then
   return require("mini")
 end
 
 if version == "kickstart" then
-  return require("kickstart")
+  return require("repos.kickstart.nvim")
 end
 
 -- nvim startup

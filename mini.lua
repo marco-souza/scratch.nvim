@@ -7,6 +7,14 @@ vim.o.wrap = false
 vim.o.tabstop = 2
 vim.o.swapfile = false
 
+-- copy/paste
+vim.o.clipboard = "unnamedplus"
+
+-- fold
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevelstart = 0
+
 vim.keymap.set("n", "<leader>w", ":write<CR>")
 vim.keymap.set("n", "<leader>q", ":quit<CR>")
 
