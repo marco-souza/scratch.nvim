@@ -6,7 +6,7 @@ return {
     version = false, -- set this if you want to always pull the latest change
     opts = {
       provider = "copilot",
-      cursor_applying_provider = "groq",
+      cursor_applying_provider = "copilot",
       hints = { enable = true },
 
       behaviour = {
@@ -14,11 +14,8 @@ return {
       },
 
       providers = {
-        groq = { -- define groq provider
-          __inherited_from = "openai",
-          api_key_name = "GROQ_API_KEY",
-          endpoint = "https://api.groq.com/openai/v1/",
-          model = "llama-3.3-70b-versatile",
+        copilot = {
+          model = "gemini-2.5-pro",
         },
       },
 
@@ -36,6 +33,20 @@ return {
       end,
     },
     build = "make",
+    shortcuts = {
+      {
+        name = "refactor",
+        description = "Refactor code with best practices",
+        details = "Automatically refactor code to improve readability, maintainability, and follow best practices while preserving functionality",
+        prompt = "Please refactor this code following best practices, improving readability and maintainability while preserving functionality.",
+      },
+      {
+        name = "test",
+        description = "Generate unit tests",
+        details = "Create comprehensive unit tests covering edge cases, error scenarios, and various input conditions",
+        prompt = "Please generate comprehensive unit tests for this code, covering edge cases and error scenarios.",
+      },
+    },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "stevearc/dressing.nvim",

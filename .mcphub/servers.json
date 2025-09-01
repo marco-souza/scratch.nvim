@@ -1,33 +1,41 @@
 {
-  "nativeMCPServers": [],
+  "nativeMCPServers": [
+    
+  ],
   "mcpServers": {
-    "filesystem": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "."
-      ]
-    },
-
     "weather": {
-      "command": "deno",
       "args": [
         "run",
         "-A",
         "/Users/marco/w/marco-souza/marco.deno.dev/src/mcp/get_weather.ts"
-      ]
+      ],
+      "command": "deno"
     },
-
-
+    "tavily": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "tavily-mcp"
+      ],
+      "env": {
+        "TAVILY_API_KEY": "${TAVILY_API_KEY}"
+      }
+    },
     "dolar_hoje": {
-      "command": "deno",
       "args": [
         "run",
         "-A",
         "/Users/marco/w/marco-souza/marco.deno.dev/src/mcp/dolar_hoje.ts"
-      ]
+      ],
+      "command": "deno"
+    },
+    "filesystem": {
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "."
+      ],
+      "command": "npx"
     }
   }
 }
-
