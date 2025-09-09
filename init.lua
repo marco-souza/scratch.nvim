@@ -1,7 +1,7 @@
----@alias NeovimDistro "mini" | "kickstart" | "default"
+---@alias NeovimDistro "mini" | "kickstart" | "main"
 
 ---@type NeovimDistro
-local version = os.getenv("DISTRO") or "mini"
+local version = os.getenv("DISTRO") or "main"
 
 print("distro: " .. version)
 
@@ -15,7 +15,6 @@ end
 
 -- nvim startup
 require("options")
-require("mappings")
 require("mappings")
 
 -- install lazy

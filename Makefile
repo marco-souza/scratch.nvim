@@ -11,11 +11,11 @@ clean:
 	rm -rf .cache .config .local
 
 up: clean
-	# exec podman compose interactively
-	podman-compose up -d --build
+	# exec docker-compose interactively
+	docker-compose up -d --build
 
 vim:
-	podman-compose exec neovim bash
+	docker-compose exec neovim bash
 
 down:
-	podman-compose down
+	docker-compose down
