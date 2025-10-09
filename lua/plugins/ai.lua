@@ -13,10 +13,14 @@ return {
         enable_cursor_planning_mode = true, -- enable cursor planning mode!
       },
 
-      providers = {
-        copilot = {
-          model = "gemini-2.5-pro",
-        },
+      -- providers = {
+      --   copilot = {
+      --     model = "gemini-2.5-pro",
+      --   },
+      -- },
+
+      rules = {
+        project_dir = ".avante/rules", -- relative to project root, can also be an absolute path
       },
 
       -- MCPHub integration
@@ -45,6 +49,18 @@ return {
         description = "Generate unit tests",
         details = "Create comprehensive unit tests covering edge cases, error scenarios, and various input conditions",
         prompt = "Please generate comprehensive unit tests for this code, covering edge cases and error scenarios.",
+      },
+      {
+        name = "setup_avante",
+        description = "Setup avante.nvim configuration",
+        details = "Helps set up avante.nvim configuration based on the provided buffers",
+        prompt = "Please setup avante.nvim for this project. Check if there is a .avante/rules directory in the project, if it doesn't exists, create avanterules based on the link @fetch https://github.com/yetone/avante.nvim/tree/main/lua/avante/templates",
+      },
+      {
+        name = "review",
+        description = "Setup avante.nvim configuration",
+        details = "Helps set up avante.nvim configuration based on the provided buffers",
+        prompt = "Please setup avante.nvim for this project. Check if there is a .avante/rules directory in the project, if it doesn't exists, create avanterules based on the link @fetch https://github.com/yetone/avante.nvim/tree/main/lua/avante/templates",
       },
     },
     dependencies = {

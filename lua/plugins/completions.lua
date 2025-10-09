@@ -63,8 +63,9 @@ return {
 
           -- avante
           "avante_commands",
-          "avante_files",
           "avante_mentions",
+          "avante_shortcuts",
+          "avante_files",
 
           -- snippets
           "copilot",
@@ -89,7 +90,7 @@ return {
           avante_commands = {
             name = "avante_commands",
             module = "blink.compat.source",
-            score_offset = 100, -- show at a higher priority than lsp
+            score_offset = 90, -- show at a higher priority than lsp
             opts = {},
           },
           avante_files = {
@@ -100,6 +101,12 @@ return {
           },
           avante_mentions = {
             name = "avante_mentions",
+            module = "blink.compat.source",
+            score_offset = 1000, -- show at a higher priority than lsp
+            opts = {},
+          },
+          avante_shortcuts = {
+            name = "avante_shortcuts",
             module = "blink.compat.source",
             score_offset = 1000, -- show at a higher priority than lsp
             opts = {},
