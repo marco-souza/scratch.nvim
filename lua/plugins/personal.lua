@@ -1,5 +1,19 @@
 return {
   {
+    "marco-souza/term.nvim",
+    dir = "~/w/marco-souza/term.nvim/",
+    dependencies = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" },
+    cmd = "Term",
+    config = true,
+    keys = {
+      {
+        "<leader>t",
+        ":Term open<CR>",
+        desc = "Toggle Term dashboard",
+      },
+    },
+  },
+  {
     dir = "~/w/marco-souza/present.nvim/",
     cmd = "Present",
     config = true,
