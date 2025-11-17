@@ -1,7 +1,7 @@
 return {
   {
     "marco-souza/term.nvim",
-    -- dir = "~/w/marco-souza/term.nvim/",
+    dir = "~/w/marco-souza/term.nvim/",
     dependencies = { "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim" },
     cmd = "Term",
     config = true,

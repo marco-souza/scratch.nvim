@@ -1,16 +1,10 @@
----@alias NeovimDistro "mini" | "kickstart" | "main"
+---@alias NeovimDistro "mini" | "main"
 
 ---@type NeovimDistro
 local version = os.getenv("DISTRO") or "main"
 
-print("distro: " .. version)
-
 if version == "mini" then
   return require("distros.mini")
-end
-
-if version == "kickstart" then
-  return require("distros.kickstart")
 end
 
 -- nvim startup

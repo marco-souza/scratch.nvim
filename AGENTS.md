@@ -8,7 +8,7 @@ The configuration is organized into the following directories and files:
 
 - **`init.lua`**: The main entry point of the Neovim configuration. It sets up `lazy.nvim` and loads other configuration files.
 - **`lua/`**: The core directory for all Lua-based configurations.
-  - **`distros/`**: Contains different distribution configurations like `kickstart.lua` and `mini.lua`.
+  - **`distros/`**: Contains different distribution configurations like `mini.lua`.
   - **`plugins/`**: Manages plugin specifications for `lazy.nvim`. Each file corresponds to a set of related plugins (e.g., `ai.lua`, `completions.lua`, `lsp.lua`).
   - **`config/`**: Contains configuration files for specific plugins or features, such as `lsp.lua` and `ts_selector.lua`.
   - **`options.lua`**: Sets global Neovim options.
@@ -24,7 +24,6 @@ The configuration is organized into the following directories and files:
 
 ### Core Functionality
 
-- **`kickstart.nvim`**: A popular base configuration that provides a solid foundation with well-configured defaults. The local configuration heavily customizes and extends it.
 - **`telescope.nvim`**: A highly extendable fuzzy finder for lists. Used for finding files, buffers, and more.
 - **`nvim-treesitter`**: Provides advanced syntax highlighting, indentation, and code navigation using tree-sitter parsers.
 
@@ -48,7 +47,6 @@ The configuration is organized into the following directories and files:
 
 ## Custom Configurations
 
-- **`lua/distros/kickstart.lua`**: This file is a customized fork of the original `kickstart.nvim`, adapted to fit the specific needs of this project. It serves as the primary distribution.
 - **`lua/plugins/personal.lua`**: A dedicated file for personal or experimental plugins and configurations, making it easy to add or remove features without altering the core setup.
 
 ## Getting Started
