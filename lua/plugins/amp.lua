@@ -71,22 +71,22 @@ return {
   opts = { auto_start = true, log_level = "warn" },
   keys = {
     {
-      "<leader>At",
+      "<leader>ai",
       ":vs | :term amp --ide <CR>",
-      desc = "Send buffer to Amp",
+      desc = "Open Amp Code 🤖",
     },
     {
-      "<leader>Ab",
+      "<leader>ab",
       ":AmpSendBuffer <CR>",
       desc = "Send buffer to Amp",
     },
     {
-      "<leader>As",
+      "<leader>as",
       ":AmpPromptSelection <CR>",
       desc = "Send selection to Amp prompt",
     },
     {
-      "<leader>Ar",
+      "<leader>ar",
       ":AmpPromptRef <CR>",
       desc = "Send file reference to Amp prompt",
     },

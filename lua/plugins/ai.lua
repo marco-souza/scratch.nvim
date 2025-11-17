@@ -101,6 +101,13 @@ return {
     event = "VeryLazy",
     build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
     dependencies = { "nvim-lua/plenary.nvim" },
+    keys = {
+      {
+        "<leader>am",
+        "<cmd>MCPHub toggle<cr>",
+        desc = "Toggle MCP Hub ⚒️",
+      },
+    },
     opts = {
       --- reference https://github.com/ravitemer/mcphub.nvim?tab=readme-ov-file#advanced-configuration
       port = 37373, -- Default port for MCP Hub
